@@ -4,6 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-cairo: 'Cairo', Arial, sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -46,6 +48,12 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
+  --linear-color: linear-gradient(
+    135deg,
+    #0a0a0a 0%,
+    #111827 35.36%,
+    #000 70.71%
+  );
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -119,4 +127,25 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+#borderBtn::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  border-radius: 4px;
+  background-color: #3b82f6;
+  z-index: -1;
+}
+
+.header {
+  background: linear-gradient(
+    123deg,
+    rgba(10, 10, 10, 0) -7.35%,
+    #111827 16.92%,
+    #000 100%
+  );
 }

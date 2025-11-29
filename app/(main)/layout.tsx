@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import { Cairo } from 'next/font/google';
-import './globals.css';
 
-const _cairo = Cairo({
-  variable: '--font-cairo',
-  subsets: ['arabic'],
-});
+import '../globals.css';
+import Footer from '@/components/global/footer';
+import Header from '@/components/global/header';
 
 export const metadata: Metadata = {
   title: 'Creta',
@@ -19,8 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar">
-      <body className={`${_cairo.variable}  antialiased`}>{children}</body>
-    </html>
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
   );
 }
