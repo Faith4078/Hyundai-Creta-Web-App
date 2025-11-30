@@ -32,7 +32,7 @@ export default function SignUpPage() {
                   <FieldLabel
                     htmlFor="form-rhf-demo-title"
                     dir="rtl"
-                    className="font-cairo text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                    className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
                   >
                     اسم المستخدم
                   </FieldLabel>
@@ -45,7 +45,7 @@ export default function SignUpPage() {
                 <Field className="flex flex-col items-end w-full" dir="rtl">
                   <FieldLabel
                     htmlFor="form-rhf-demo-title"
-                    className="font-cairo text-white font-normal text-right w-full  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                    className="font-cairo capitalize text-white font-normal text-right w-full  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
                   >
                     كلمة المرور
                   </FieldLabel>
