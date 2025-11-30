@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SlideForHowItWorksSection } from '../global/slide-for-how-it-works';
 
 export default function LaunchVideoSection() {
   return (

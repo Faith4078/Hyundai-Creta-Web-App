@@ -84,14 +84,19 @@ export default function SignUpPage() {
             انضم إلى آلاف المشاركين في مسابقة للعثور على سيارة هيونداي كريتا
             الجديدة كليًا والفوز بها. أكمل تسجيلك أدناه للبدء.
           </p>
-          <ul className="flex items-center gap-x-[40px] lg:gap-x-[120px]">
-            <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
-              يبدأ التحدي بعد 3 أيام
-            </li>
-            <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
-              يبدأ التحدي بعد 3 أيام
-            </li>
-          </ul>
+          <div className="mr-4">
+            <ul
+              className="list-disc ml-5 marker:text-white flex items-center gap-x-[40px] lg:gap-x-[50px]"
+              dir="rtl"
+            >
+              <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
+                يبدأ التحدي بعد 3 أيام
+              </li>
+              <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
+                يبدأ التحدي بعد 3 أيام
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>

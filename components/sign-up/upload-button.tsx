@@ -43,7 +43,7 @@ export const UploadButton: React.FC<UploadButtonProps> = ({
           alt="upload image button"
         />
         <h6 className="font-cairo text-center text-[0.8rem] font-bold lg:text-[1.25rem] lg:leading-[2.0625rem]">
-          تحميل الصورة
+          تحميل صورتك
         </h6>
         <p className="font-cairo text-[#FFFFFF80]  font-normal text-[0.5rem] text-center leading-[2.0625rem] lg:text-[1rem]">
           يجب أن تكون الصورة 5 ميجا بايت كحد أقصى.

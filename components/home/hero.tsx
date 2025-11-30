@@ -33,33 +33,33 @@ export default function Hero() {
             على فرصة للفوز بسيارة هيونداي كريتا الجديدة كليًا. اتبع الأدلة،
             وأكمل المهام اليومية، وتسابق للفوز بالجائزة الكبرى.
           </p>
-          <div className="space-y-8">
+          <div className="space-y-8 mt-[33px] lg:mt-[58px]">
             <p className="text-[#3B82F6] font-cairo text-right  font-extrabold text-base leading-[1.37rem] lg:text-[1.5rem] lg:leading-[2.0625rem] ">
               يبدأ التحدي في:
             </p>
             {/* boxes */}
             <div className="flex justify-end gap-x-4">
               {countdownTimer.map(({ heading, description }, index) => (
-                <div
+                <article
                   key={index}
                   className="w-[67.55px] h-[90.59px] rounded-[15px]  bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] p-[1.5px] lg:w-[92px] lg:h-[107px]"
                 >
-                  <div className="w-full h-full flex flex-col justify-center rounded-[13px] bg-[#0A0A0A]  font-cairo hover:cursor-pointer ">
-                    <h3 className=" text-center text-white font-bold text-[2rem] leading-[4rem] lg:text-[3rem] lg:leading-[6rem]">
+                  <div className="w-full h-full flex flex-col  justify-center rounded-[13px] bg-[#0A0A0A]  font-cairo hover:cursor-pointer ">
+                    <h3 className=" text-center text-white mt-[-20px]  font-bold text-[2rem] leading-[4rem] lg:text-[3rem] lg:leading-[6rem]">
                       {heading}
                     </h3>
-                    <p className="text-center  text-[#488EFF]  font-normal text-[0.8rem] leading-[1rem] lg:text-[1.25rem] lg:leading-[2.0625rem]">
+                    <p className="text-center  text-[#488EFF] mt-[-10px]  font-normal text-[0.8rem] leading-[1rem] lg:mt-[-25px] lg:text-[1.25rem] lg:leading-[2.0625rem]">
                       {description}
                     </p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
 
           <div
             id="button-group"
-            className="flex gap-[11px] justify-end mt-[58px]"
+            className="flex gap-[17px] justify-end mt-[58px]"
           >
             <div className="w-[200px] h-[33px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ml-auto lg:w-[343px] lg:h-[67px]">
               <button

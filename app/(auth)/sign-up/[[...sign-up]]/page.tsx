@@ -22,7 +22,7 @@ export default function SignUpPage() {
   return (
     <main className="bg-[url(/assets/creta-background.png)] min-h-[50vh] py-[45px] bg-center bg-no-repeat bg-cover  w-full lg:pt-[61px] lg:pb-[116px]  lg:min-h-screen">
       <div className="max-w-[1296px] w-full mx-auto px-4 flex flex-col justify-between items-center lg:flex-row">
-        <Card className="w-full max-w-md order-2 flex flex-col justify-center h-[770px] shadow-lg rounded-[15px]  bg-gradient-to-r from-[#3B82F6] to-[#00FFFF]  p-[1.5px] lg:order-1 lg:h-[950px]">
+        <Card className="w-full max-w-md order-2 flex flex-col justify-center h-[1150px] shadow-lg rounded-[15px]  bg-gradient-to-r from-[#3B82F6] to-[#00FFFF]  p-[1.5px] lg:order-1 lg:min-h-[1350px]">
           <div className="w-full h-full shadow-lg flex  flex-col justify-center rounded-[13px] bg-[#0A0A0A] text-white font-normal font-cairo text-[1.5rem] hover:cursor-pointer">
             <CardTitle className=" font-cairo text-white font-bold text-center text-[1.21544rem] leading:[2.43088rem] lg:text-[2.25rem] lg:leading-[4.5rem]">
               إنشاء حسابك
@@ -32,43 +32,15 @@ export default function SignUpPage() {
             </CardDescription>
             <CardContent>
               <form action="" className="flex flex-col gap-y-[10px]">
-                <div className="flex gap-x-[28px]">
-                  <Field>
-                    <FieldLabel
-                      dir="rtl"
-                      htmlFor="form-rhf-demo-title"
-                      className="font-cairo text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
-                    >
-                      رقم الهاتف المحمول
-                    </FieldLabel>
-                    <Input
-                      id="form-rhf-demo-title"
-                      className="h-[52px] bg-[#1E293B] border-0 "
-                      autoComplete="off"
-                    />
-                  </Field>
-                  <Field>
-                    <FieldLabel
-                      dir="rtl"
-                      htmlFor="form-rhf-demo-title"
-                      className="font-cairo text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
-                    >
-                      الاسم الكامل
-                    </FieldLabel>
-                    <Input
-                      id="form-rhf-demo-title"
-                      className="h-[52px] bg-[#1E293B] border-0 "
-                      autoComplete="off"
-                    />
-                  </Field>
-                </div>
+                <div className="flex gap-x-[28px]"></div>
+                {/* first name */}
                 <Field>
                   <FieldLabel
                     htmlFor="form-rhf-demo-title"
                     dir="rtl"
-                    className="font-cairo text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                    className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
                   >
-                    عنوان البريد الإلكتروني
+                    الاسم الأول
                   </FieldLabel>
                   <Input
                     id="form-rhf-demo-title"
@@ -76,10 +48,86 @@ export default function SignUpPage() {
                     autoComplete="off"
                   />
                 </Field>
+                {/* last name */}
+                <Field>
+                  <FieldLabel
+                    dir="rtl"
+                    htmlFor="form-rhf-demo-title"
+                    className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                  >
+                    اسم العائلة
+                  </FieldLabel>
+                  <Input
+                    id="form-rhf-demo-title"
+                    className="h-[52px]  bg-[#1E293B] border-0 "
+                    autoComplete="off"
+                  />
+                </Field>
+                {/* username */}
+                <Field>
+                  <FieldLabel
+                    dir="rtl"
+                    htmlFor="form-rhf-demo-title"
+                    className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                  >
+                    اسم المستخدم
+                  </FieldLabel>
+                  <Input
+                    id="form-rhf-demo-title"
+                    className="h-[52px] bg-[#1E293B] border-0 "
+                    autoComplete="off"
+                  />
+                </Field>
+                {/* email */}
+                <Field>
+                  <FieldLabel
+                    dir="rtl"
+                    htmlFor="form-rhf-demo-title"
+                    className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                  >
+                    عنوان البريد الإلكتروني
+                  </FieldLabel>
+                  <Input
+                    id="form-rhf-demo-title"
+                    className="h-[52px] bg-[#1E293B] border-0 "
+                    autoComplete="off"
+                  />
+                </Field>
+                {/* Password */}
+                <Field>
+                  <FieldLabel
+                    dir="rtl"
+                    htmlFor="form-rhf-demo-title"
+                    className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                  >
+                    كلمة المرور
+                  </FieldLabel>
+                  <Input
+                    id="form-rhf-demo-title"
+                    className="h-[52px] bg-[#1E293B] border-0 "
+                    autoComplete="off"
+                  />
+                </Field>
+                {/* mobile phone number */}
+                <Field>
+                  <FieldLabel
+                    dir="rtl"
+                    htmlFor="form-rhf-demo-title"
+                    className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                  >
+                    رقم الهاتف المحمول
+                  </FieldLabel>
+                  <Input
+                    id="form-rhf-demo-title"
+                    className="h-[52px] bg-[#1E293B] border-0 "
+                    autoComplete="off"
+                  />
+                </Field>
+
                 <Field className="flex flex-col items-end w-full" dir="rtl">
                   <FieldLabel
                     htmlFor="form-rhf-demo-title"
-                    className="font-cairo text-white font-normal text-right w-full  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+                    className="font-cairo capitalize text-white font-normal text-right w-full  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
                   >
                     رقم الإنعاش القلبي الرئوي
                   </FieldLabel>
@@ -103,7 +151,7 @@ export default function SignUpPage() {
           </div>
         </Card>
         {/* right col */}
-        <div className="text-right max-w-[420px] my-[45px]  w-full mx-auto order-1 flex flex-col gap-y-[35px] items-end lg:gap-y-[56px] lg:order-2 lg:max-w-full lg:my-0">
+        <div className=" max-w-[420px] my-[45px]  w-full mx-auto order-1 flex flex-col gap-y-[35px] items-end lg:gap-y-[56px] lg:order-2 lg:max-w-full lg:my-0">
           <div className="w-[177px] h-[54px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ">
             <Link
               href={'/sign-in'}
@@ -115,18 +163,26 @@ export default function SignUpPage() {
           <h1 className="text-white font-cairo  text-right font-black text-[2.3875rem] leading-[2.04644rem] lg:text-[3.61rem] lg:leading-[3.09956rem]">
             سجل لبدء التحدي
           </h1>
-          <p className="font-cairo text-white w-[341px] text-[0.82531rem] leading-[1.36175rem] font-normal lg:w-[517px] lg:text-[1.25rem] lg:leading-[2.0625rem]">
+          <p
+            className="font-cairo text-white w-[341px] text-[0.82531rem] leading-[1.36175rem] font-normal lg:w-[517px] lg:text-[1.25rem] lg:leading-[2.0625rem]"
+            dir="rtl"
+          >
             انضم إلى آلاف المشاركين في مسابقة للعثور على سيارة هيونداي كريتا
             الجديدة كليًا والفوز بها. أكمل تسجيلك أدناه للبدء.
           </p>
-          <ul className="flex items-center gap-x-[40px] lg:gap-x-[120px]">
-            <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
-              يبدأ التحدي بعد 3 أيام
-            </li>
-            <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
-              يبدأ التحدي بعد 3 أيام
-            </li>
-          </ul>
+          <div className="mr-4">
+            <ul
+              className="list-disc ml-5 marker:text-white flex items-center gap-x-[40px] lg:gap-x-[50px]"
+              dir="rtl"
+            >
+              <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
+                يبدأ التحدي بعد 3 أيام
+              </li>
+              <li className="font-cairo text-white text-right font-normal text-[ 0.66025rem] leading-[1.36175rem] lg:text-[1rem] lg:leading-[2.0625rem]">
+                يبدأ التحدي بعد 3 أيام
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>
