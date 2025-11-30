@@ -15,7 +15,7 @@ export default function CountdownSection() {
       <ChallengeSectionCountdownBoxes />
       <button
         type="button"
-        className="text-[#1E293B] w-[281px] text-center flex items-center justify-center mx-auto bg-white rounded-[100px] h-[67px] font-cairo text-[1.5rem] leading-24 font-bold hover:cursor-pointer"
+        className="text-[#1E293B] w-[172px] h-[41px] text-center flex items-center justify-center mx-auto bg-white rounded-[100px] font-cairo font-bold text-[0.92138rem] leading-[3.68556rem] lg:h-[67px]  lg:w-[281px] lg: lg:text-[1.5rem] lg:leading-24 hover:cursor-pointer"
       >
         احصل على الإشعارات
       </button>

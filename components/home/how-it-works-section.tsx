@@ -5,12 +5,12 @@ import { SlideForHowItWorksSection } from '../global/slide-for-how-it-works';
 
 export default function HowItWorksSection() {
   return (
-    <section className="min-h-screen py-[111px] bg-linear-to-br from-[#0A0A0A] via-[#111827] to-[#000] flex flex-col justify-center">
+    <section className="min-h-[50vh] py-[50px] bg-linear-to-br from-[#0A0A0A] via-[#111827] to-[#000] flex flex-col justify-center lg:min-h-screen  lg:py-[111px]">
       <div className="flex flex-col items-center justify-center">
         <h3 className="font-cairo   text-white text-center  font-black text-[1.89rem] leading-[2.13631rem] lg:text-[4rem] lg:leading-18">
           كيف يعمل
         </h3>
-        <p className="font-cairo text-[1.5rem] text-white text-center leading-8.25 max-w-[813px] w-full font-normal mt-[55px] mb-[52px] mx-auto">
+        <p className="font-cairo  text-white text-center  max-w-[293px] w-full font-normal mt-[31px] mb-[53px] mx-auto text-[0.71213rem] leading-[0.97913rem] lg:mt-[55px] lg:mb-[52px] lg:max-w-[813px] lg:text-[1.5rem] lg:leading-8.25">
           ثلاث خطوات بسيطة للانضمام إلى تحدي هيونداي كريتا النهائي والفوز بجوائز
           مذهلة
         </p>
@@ -55,13 +55,21 @@ export default function HowItWorksSection() {
         </div>
         <SlideForHowItWorksSection />
       </div>
-      <button className="mx-auto mt-[78px] rounded-[100px]  font-cairo text-[#1E293B] text-[2rem] font-extrabold leading-24 w-[261px] h-[67px] text-center flex justify-center items-center gap-[13px] bg-gradient-to-r from-[#3B82F6] to-[#0FF] ">
+      <button className="mx-auto mt-0 rounded-[100px]  font-cairo text-[#1E293B] text-[1.30275rem] font-extrabold leading-[3.90825rem] w-[170px] h-[43px] text-center flex justify-center items-center gap-[13px] bg-gradient-to-r from-[#3B82F6] to-[#0FF] lg:w-[261px] lg:h-[67px] lg:text-[2rem] lg:leading-24  lg:mt-[78px]">
         <Image
           src={'/assets/arrow.svg'}
           width={48}
           height={48}
+          className="hidden lg:block"
           alt="arrow icon"
-        />{' '}
+        />
+        <Image
+          src={'/assets/arrow.svg'}
+          width={35}
+          height={35}
+          className="block lg:hidden"
+          alt="arrow icon"
+        />
         ابدأ الآن
       </button>
     </section>

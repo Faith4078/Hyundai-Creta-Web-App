@@ -9,7 +9,7 @@ export default function LaunchVideoSection() {
           <h3 className="font-cairo   text-white text-center font-black text-[1.716rem] leading-[1.930rem] lg:text-[4rem] lg:leading-18">
             تجربة الإثارة
           </h3>
-          <p className="font-cairo  text-white text-[0.643rem] leading-[0.88rem] text-center  max-w-[891px] w-full font-normal  mx-auto my-[24px]  lg:text-[1.5rem] lg:leading-8.25 lg:mt-[55px] lg:mb-[52px]">
+          <p className="font-cairo  text-white text-[0.643rem] leading-[0.88rem] text-center   w-full font-normal  mx-auto my-[24px] w-[335px] px-6 lg:px-0  lg:text-[1.5rem] lg:leading-8.25 lg:mt-[55px] lg:mb-[52px] lg:w-[891px]">
             شاهد كيف تُحوّل هيونداي كريتا كل رحلة إلى مغامرة شيّقة. استعد لعشرة
             أيام من الاكتشاف والسرعة والمكافآت القيّمة.
           </p>

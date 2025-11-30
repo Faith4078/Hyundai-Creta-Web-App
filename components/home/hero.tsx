@@ -5,12 +5,12 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <div className="bg-[url(/assets/creta-background.png)] bg-center bg-no-repeat bg-cover min-h-screen w-full pt-[87px] pb-[99px] px-4">
+    <div className="bg-[url(/assets/creta-background.png)] bg-center bg-no-repeat bg-cover w-full  px-4 py-[40px] min-h-[50vh] lg:min-h-screen lg:pt-[87px] lg:pb-[99px]">
       <div className="max-w-[1296px] w-full mx-auto flex justify-end">
         {/* right-col */}
 
         <div className="text-right flex flex-col items-end">
-          <div className="w-[234px] h-[78px] mb-[47px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ml-auto">
+          <div className="w-[156px] h-[36px] mb-[47px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ml-auto lg:w-[234px] g:h-[78px]">
             <button
               type="button"
               className="w-full h-full flex items-center justify-center rounded-full bg-[#0A0A0A] text-white font-normal font-cairo text-[0.67rem]  leading-[4rem] lg:text-base lg:leading-24 hover:cursor-pointer"

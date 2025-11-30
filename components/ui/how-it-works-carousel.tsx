@@ -399,7 +399,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   return (
     <div className="relative w-full block lg:hidden">
       <div
-        className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
+        className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth  [scrollbar-width:none] md:py-20"
         ref={carouselRef}
         onScroll={checkScrollability}
       >
@@ -409,7 +409,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
             return (
               <article
-                className="w-[343px] min-w-[343px] flex flex-col justify-between gap-y-[78px] py-6"
+                className="w-[343px] min-w-[343px] flex flex-col justify-between   gap-y-[27px] lg:gap-y-[78px]"
                 key={index}
               >
                 <div className="flex flex-col gap-y-4">
@@ -417,7 +417,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                     src={icon}
                     width={148}
                     height={148}
-                    className="mx-auto block"
+                    className="mx-auto hidden lg:block"
+                    alt="creta car image"
+                  />
+                  <Image
+                    src={icon}
+                    width={85}
+                    height={85}
+                    className="mx-auto block lg:hidden"
                     alt="creta car image"
                   />
                   <h3
@@ -434,10 +441,10 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                   </p>
                 </div>
 
-                <div className="w-[300px] h-[78px] mx-auto bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[15px] p-[1.5px] lg:w-[343px]">
+                <div className="w-[198px] h-[45px] mx-auto bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[8px] p-[1.5px] lg:w-[343px] lg:rounded-[15px]">
                   <button
                     type="button"
-                    className="w-full h-full flex items-center justify-center rounded-[13px] bg-[#0A0A0A] text-white font-normal font-cairo text-[0.86888rem] leading-[1.19475rem] lg:text-[1.5rem] hover:cursor-pointer"
+                    className="w-full h-full flex items-center justify-center rounded-[8px] bg-[#0A0A0A] text-white font-normal font-cairo text-[0.86888rem] leading-[1.19475rem] lg:rounded-[8px] lg:text-[1.5rem] hover:cursor-pointer"
                   >
                     {buttonText}
                   </button>
@@ -447,7 +454,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           })}
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center my-[23px]">
         <button
           className="flex items-center justify-center rounded-full disabled:opacity-50"
           onClick={scrollLeft}
