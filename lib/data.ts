@@ -111,9 +111,7 @@ export const navLinks = [
   {
     link: 'التعليمات',
   },
-  {
-    link: 'الجوائز',
-  },
+
   {
     link: 'تحدي',
   },
