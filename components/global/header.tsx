@@ -43,6 +43,7 @@ export default function Header() {
             src={'/assets/hyundai-logo.png'}
             width={199}
             height={28}
+            style={{ width: 'auto', height: 'auto' }}
             alt="hyundai logo"
           />
         </Link>
