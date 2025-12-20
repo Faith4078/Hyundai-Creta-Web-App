@@ -49,7 +49,12 @@ export default function CheckBoxConfirmation({
           }}
         />
       </div>
-      {error && <p className="text-red-500 text-xs text-right">{error}</p>}
+
+      {error && (
+        <div className="min-h-[20px]">
+          <p className="text-red-500 text-xs text-right">{error}</p>
+        </div>
+      )}
     </div>
   );
 }

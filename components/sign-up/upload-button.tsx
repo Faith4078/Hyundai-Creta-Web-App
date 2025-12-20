@@ -110,7 +110,9 @@ export const UploadButton: React.FC<UploadButtonProps> = ({
           يجب أن تكون الصورة 5 ميجا بايت كحد أقصى.
         </p>
       </button>
-      {error && <p className="text-red-500 text-xs text-right">{error}</p>}
+      <div className="min-h-[20px]">
+        {error && <p className="text-red-500 text-xs text-right">{error}</p>}
+      </div>
     </div>
   );
 };

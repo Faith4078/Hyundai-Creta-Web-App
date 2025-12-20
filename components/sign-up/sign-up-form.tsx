@@ -184,7 +184,8 @@ export default function SignUpForm() {
     trigger,
   } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
-    mode: 'onChange',
+    mode: 'onBlur',
+    reValidateMode: 'onChange',
   });
 
   // Watch field values for real-time length display
@@ -292,9 +293,11 @@ export default function SignUpForm() {
               />
               {(touchedFields.firstName || firstName.length > 0) &&
                 errors.firstName && (
-                  <p className="text-red-500 text-xs mt-1 text-right">
-                    {errors.firstName.message}
-                  </p>
+                  <div className="min-h-[20px]">
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.firstName.message}
+                    </p>
+                  </div>
                 )}
             </Field>
 
@@ -316,9 +319,11 @@ export default function SignUpForm() {
               />
               {(touchedFields.lastName || lastName.length > 0) &&
                 errors.lastName && (
-                  <p className="text-red-500 text-xs mt-1 text-right">
-                    {errors.lastName.message}
-                  </p>
+                  <div className="min-h-[20px]">
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.lastName.message}
+                    </p>
+                  </div>
                 )}
             </Field>
 
@@ -340,9 +345,11 @@ export default function SignUpForm() {
               />
               {(touchedFields.username || username.length > 0) &&
                 errors.username && (
-                  <p className="text-red-500 text-xs mt-1 text-right">
-                    {errors.username.message}
-                  </p>
+                  <div className="min-h-[20px]">
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.username.message}
+                    </p>
+                  </div>
                 )}
             </Field>
 
@@ -364,9 +371,11 @@ export default function SignUpForm() {
                 onBlur={() => trigger('email')}
               />
               {touchedFields.email && errors.email && (
-                <p className="text-red-500 text-xs mt-1 text-right">
-                  {errors.email.message}
-                </p>
+                <div className="min-h-[20px]">
+                  <p className="text-red-500 text-xs mt-1 text-right">
+                    {errors.email.message}
+                  </p>
+                </div>
               )}
             </Field>
 
@@ -384,14 +393,16 @@ export default function SignUpForm() {
                 type="password"
                 {...register('password')}
                 className="h-[52px] bg-[#1E293B] border-0 "
-                // autoComplete="off"
+                autoComplete="new-password"
                 onBlur={() => trigger('password')}
               />
               {(touchedFields.password || password.length > 0) &&
                 errors.password && (
-                  <p className="text-red-500 text-xs mt-1 text-right">
-                    {errors.password.message}
-                  </p>
+                  <div className="min-h-[20px]">
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.password.message}
+                    </p>
+                  </div>
                 )}
             </Field>
 
@@ -415,9 +426,11 @@ export default function SignUpForm() {
               />
               {(touchedFields.phoneNumber || phoneNumber.length > 0) &&
                 errors.phoneNumber && (
-                  <p className="text-red-500 text-xs mt-1 text-right">
-                    {errors.phoneNumber.message}
-                  </p>
+                  <div className="min-h-[20px]">
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.phoneNumber.message}
+                    </p>
+                  </div>
                 )}
             </Field>
 
@@ -440,9 +453,11 @@ export default function SignUpForm() {
               />
               {(touchedFields.cprNumber || cprNumber.length > 0) &&
                 errors.cprNumber && (
-                  <p className="text-red-500 text-xs mt-1 text-right">
-                    {errors.cprNumber.message}
-                  </p>
+                  <div className="min-h-[20px]">
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.cprNumber.message}
+                    </p>
+                  </div>
                 )}
             </Field>
 
