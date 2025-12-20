@@ -20,8 +20,8 @@ export default function RootLayout({
       <Header />
       {children}
       <div className="bg-gradient-to-r from-[#0F1520] via-[#0F172A] to-[#000001] h-[113px] flex items-center justify-center">
-        <p className="text-centers font-cairo text-white text-[0.84956rem] leading-[1.16813rem] font-normal lg:text-[1.25rem] lg:leading-8.25 ">
-          © 2025 هيونداي السعودية – جميع الحقوق محفوظة
+        <p className="text-center font-cairo text-white font-normal text-[0.849rem] leading-[1.16813rem] lg:text-[1.25rem] lg:leading-8.25">
+          © 2025 هيونداي البحرين – جميع الحقوق محفوظة
         </p>
       </div>
     </>

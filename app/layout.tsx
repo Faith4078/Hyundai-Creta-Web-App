@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cairo, Inter } from 'next/font/google';
 import './globals.css';
+import { Toaster } from '@/components/ui/sonner';
 
 const _cairo = Cairo({
   variable: '--font-cairo',
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="ar">
       <body className={`${_cairo.variable} ${_inter.variable} antialiased`}>
         {children}
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );
