@@ -4,12 +4,12 @@ import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 export default async function WinnerPage() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-  if (!session) {
-    redirect('/sign-in');
-  }
+  // const session = await auth.api.getSession({
+  //   headers: await headers(),
+  // });
+  // if (!session) {
+  //   redirect('/sign-in');
+  // }
   return (
     // <main className=" w-full min-h-[200vh] ">
     //   <section className="max-w-[1296px] bg-gradient-to-br from-[#0A0A0A] via-[#111827] to-[#000] w-full  mx-auto px-4">
