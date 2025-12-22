@@ -8,7 +8,7 @@ export default function SignUpPage() {
         {/* left col */}
         <SignInForm />
         {/* right col */}
-        <div className="text-right max-w-[420px] my-[45px]  w-full mx-auto order-1 flex flex-col gap-y-[35px] items-end lg:gap-y-[56px] lg:order-2 lg:max-w-full lg:my-0">
+        <div className="text-right my-[45px] max-w-full  w-full mx-auto order-1 flex flex-col gap-y-[35px] items-end lg:gap-y-[56px] lg:order-2 lg:max-w-full lg:my-0 lg:max-w-[420px]">
           <div className="w-[177px] h-[54px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ">
             <Link
               href={'/sign-up'}

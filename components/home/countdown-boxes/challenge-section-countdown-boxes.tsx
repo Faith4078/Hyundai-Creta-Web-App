@@ -1,6 +1,4 @@
 import { countdownTimer } from '@/lib/data';
-import { headers } from 'next/headers';
-import React from 'react';
 
 export default function ChallengeSectionCountdownBoxes() {
   return (
