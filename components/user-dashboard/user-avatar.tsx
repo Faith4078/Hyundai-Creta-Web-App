@@ -18,6 +18,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { authClient } from '@/lib/better-auth/auth-client';
 import { Button } from '../ui/button';
 import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
+
 export function UserAvatar() {
   return (
     <Avatar className="hover:cursor-pointer">
@@ -32,6 +34,7 @@ export function UserAvatar() {
   );
 }
 export function DropdownMenuDemo() {
+  const router = useRouter();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -63,6 +66,7 @@ export function DropdownMenuDemo() {
             onClick={() => {
               authClient.signOut();
               toast.success('Logout Sucessful');
+              router.push('/');
             }}
             className="h-[44px] w-full flex items-center gap-x-4 justify-center rounded-[10px] bg-[#0A0A0A] text-white font-normal font-cairo text-base leading-24 hover:cursor-pointer"
           >
