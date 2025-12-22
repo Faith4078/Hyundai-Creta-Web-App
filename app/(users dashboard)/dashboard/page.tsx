@@ -9,16 +9,19 @@ import {
 } from '@/lib/data';
 
 import Image from 'next/image';
-import { auth } from '@/lib/auth';
+import { auth } from '@/auth';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
+import nameTranslation from '@/lib/name-translation';
 export default async function Dashboard() {
-  // const session = await auth.api.getSession({
-  //   headers: await headers(),
-  // });
-  // if (!session) {
-  //   redirect('/sign-in');
-  // }
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  if (!session) {
+    redirect('/sign-in');
+  }
+  const userName = session?.user?.username;
+  const welcomeMessage = await nameTranslation(userName || '');
   return (
     <main>
       {/* dashboard hero section */}
@@ -28,7 +31,7 @@ export default async function Dashboard() {
       >
         <div className="px-6 max-w-[763px]">
           <h3 className="font-cairo text-white font-black text-[3.13425rem] text-center leading-[2.6865rem] lg:text-[5.25rem] lg:leading-[4.5rem]">
-            أهلا بك أحمد!
+            {welcomeMessage}
           </h3>
           <p className="font-cairo  text-white font-medium text-center  text-[0.8955rem] leading-[1.67906rem] mt-[30px] mb-[49px] lg:text-[1.5rem] lg:leading-[2.8125rem] lg:mt-[63px] lg:mb-[75px]">
             هل أنت مستعد لخوض غمار تحدي اليوم؟ تابع تقدمك وتابع العد التنازلي

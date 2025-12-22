@@ -94,7 +94,7 @@ export const UploadButton: React.FC<UploadButtonProps> = ({
       />
       <button
         type="button"
-        className="w-full h-[172px] my-[23px] py-[35px] flex flex-col gap-y-[9px] items-center justify-center  border-[2px] border-[#3B82F6]  rounded-[15px] border-dashed hover:border-[#60A5FA] transition-colors"
+        className="w-full h-[172px] mt-2 py-[35px] flex flex-col gap-y-[9px] items-center justify-center  border-[2px] border-[#3B82F6]  rounded-[15px] border-dashed hover:border-[#60A5FA] transition-colors"
         onClick={handleButtonClick}
       >
         <Image
@@ -110,7 +110,9 @@ export const UploadButton: React.FC<UploadButtonProps> = ({
           يجب أن تكون الصورة 5 ميجا بايت كحد أقصى.
         </p>
       </button>
-      {error && <p className="text-red-500 text-xs text-right">{error}</p>}
+      <div className="min-h-[20px]">
+        {error && <p className="text-red-500 text-xs text-right">{error}</p>}
+      </div>
     </div>
   );
 };
