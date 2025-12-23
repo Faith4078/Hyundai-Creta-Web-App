@@ -1,10 +1,14 @@
 import React from 'react';
 import { Field, FieldLabel } from '../ui/field';
 import { Input } from '../ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function ContactForm() {
   return (
-    <form action="" className="max-w-[1137px] w-full mx-auto">
+    <form
+      action=""
+      className="max-w-[1137px] w-full mx-auto space-y-[13px] lg:space-y-[23px]"
+    >
       <div className="flex gap-[35px]">
         <Field>
           <FieldLabel
@@ -56,17 +60,18 @@ export default function ContactForm() {
                           </div> */}
         </Field>
       </div>
+
       <div className="flex gap-[35px]">
         <Field>
           <FieldLabel
-            htmlFor="firstName"
+            htmlFor="location"
             dir="rtl"
             className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem] placeholder:text-white"
           >
-            الاسم الكامل
+            موقعك
           </FieldLabel>
           <Input
-            id="firstName"
+            id="location"
             //   {...register('firstName')}
             className="h-[52px] bg-[#1E293B] text-white  border-0 focus:border-0 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
             autoComplete="off"
@@ -84,14 +89,14 @@ export default function ContactForm() {
         {/* Email Address */}
         <Field>
           <FieldLabel
-            htmlFor="email-address"
+            htmlFor="phone-number"
             dir="rtl"
             className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem] placeholder:text-white"
           >
-            بريدك الإلكتروني
+            رقم الهاتف
           </FieldLabel>
           <Input
-            id="email-address"
+            id="phone-number"
             //   {...register('firstName')}
             className="h-[52px] bg-[#1E293B] text-white  border-0 focus:border-0 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
             autoComplete="off"
@@ -107,6 +112,20 @@ export default function ContactForm() {
                           </div> */}
         </Field>
       </div>
+      <FieldLabel
+        htmlFor="phone-number"
+        dir="rtl"
+        className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem] placeholder:text-white"
+      >
+        اكتب رسالتك
+      </FieldLabel>
+      <Textarea className="h-[178px] resize-none bg-[#1E293B] text-white  border-0 focus:border-0 focus:border-[#3B82F6] focus:ring-[#3B82F6]" />
+      <button
+        type="submit"
+        className="bg-gradient-to-r from-[#3B82F6] to-[#0FF] w-full h-[44px] sm:h-[52px] rounded-[10px] text-[#1E293B] text-center flex items-center justify-center text-[0.81031rem] leading-[1.11413rem]  lg:text-[1.5rem] font-bold lg:leading-[2.0625rem] hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed lg:h-[62px]"
+      >
+        إرسال رسالتك
+      </button>
     </form>
   );
 }
