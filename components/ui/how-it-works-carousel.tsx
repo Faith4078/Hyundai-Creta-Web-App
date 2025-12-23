@@ -441,13 +441,40 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                   </p>
                 </div>
 
-                <div className="w-[198px] h-[45px] mx-auto bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[8px] p-[1.5px] lg:w-[343px] lg:rounded-[15px]">
+                {/* <div className="w-[198px] h-[45px] mx-auto bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[8px] p-[1.5px] lg:w-[343px] lg:rounded-[15px]">
                   <button
                     type="button"
                     className="w-full h-full flex items-center justify-center rounded-[8px] bg-[#0A0A0A] text-white font-normal font-cairo text-[0.86888rem] leading-[1.19475rem] lg:rounded-[8px] lg:text-[1.5rem] hover:cursor-pointer"
                   >
                     {buttonText}
                   </button>
+                </div> */}
+                <div
+                  className="w-[198px] h-[45px] mx-auto rounded-[8px] p-[1.5px] lg:w-[343px] lg:rounded-[15px]"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, #3B82F6, #00FFFF, #3B82F6, #00FFFF)',
+                    backgroundSize: '200% 100%',
+                    animation: 'gradientShift 3s linear infinite',
+                  }}
+                >
+                  <button
+                    type="button"
+                    className="w-full h-full flex items-center justify-center rounded-[8px] bg-[#0A0A0A] text-white font-normal font-cairo text-[0.86888rem] leading-[1.19475rem] lg:rounded-[8px] lg:text-[1.5rem] hover:cursor-pointer"
+                  >
+                    {buttonText}
+                  </button>
+
+                  <style jsx>{`
+                    @keyframes gradientShift {
+                      0% {
+                        background-position: 0% 50%;
+                      }
+                      100% {
+                        background-position: 200% 50%;
+                      }
+                    }
+                  `}</style>
                 </div>
               </article>
             );

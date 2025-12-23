@@ -23,3 +23,18 @@ DeepL API:
 Then $25 per 1 million characters
 More accurate than Google
 Cost: ~$40-50
+
+## Env varables
+
+# Supabase
+
+DATABASE_URL=
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+SUPABASE_SECRET_KEY=
+
+# Better Auth
+
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=
+NEXT_PUBLIC_URL=https://creta-treasure-hunting.vercel.app/
