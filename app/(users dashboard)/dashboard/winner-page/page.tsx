@@ -18,8 +18,8 @@ export default async function WinnerPage() {
         <div className="mx-auto flex flex-col items-center gap-y-[42px] pt-[37px] lg:pt-[153px]">
           <Image
             src={'/assets/trophy.svg'}
-            width={628}
-            height={256}
+            width={300}
+            height={122}
             alt="hyundai creta car image"
             className="hidden lg:block"
           />
