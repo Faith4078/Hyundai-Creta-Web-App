@@ -35,6 +35,6 @@ SUPABASE_SECRET_KEY=
 
 # Better Auth
 
-BETTER_AUTH_SECRET=
-BETTER_AUTH_URL=
+BETTER_AUTH_SECRET=cNFdzkAG73u4wfPoFKdXaL5bf5bfhqGi
+BETTER_AUTH_URL=http://localhost:3000
 NEXT_PUBLIC_URL=https://creta-treasure-hunting.vercel.app/

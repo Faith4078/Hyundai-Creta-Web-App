@@ -1,4 +1,5 @@
 import { Progress } from '@/components/ui/progress';
+import { CluesGrid } from './components/clues-grid';
 import {
   challengePreviewData,
   clueBoxData,
@@ -67,14 +68,14 @@ export default async function Dashboard() {
           تتبع رحلتك عبر تحدي الاكتشاف لمدة 10 أيام
         </p>
 
-        <div className=" max-w-[1180px] mx-auto w-full min-h-screen     bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[10px] p-[1.5px]">
-          <div className="w-full h-full flex flex-col rounded-[10px] bg-[#0A0A0A] px-[20px]  lg:px-[70px] ">
+        <div className=" max-w-[1180px] mx-auto w-full bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[10px] p-[1.5px]">
+          <div className="w-full flex flex-col rounded-[10px] bg-[#0A0A0A] px-[20px] lg:px-[70px] pb-[20px] lg:pb-[40px]">
             <div className="w-full flex items-center justify-between py-[20px] lg:py-[40px]">
-              <p className="font-cairo font-normal text-white text-[1.5rem] leading-[2.0625rem]">
-                30%
-              </p>
               <p className="font-cairo text-white font-normal text-[0.90725rem] leading-[1.2475rem] lg:text-[1.5rem] lg:leading-[2.0625rem]">
                 تم إكمال 3 من 10 تحديات
+              </p>
+              <p className="font-cairo font-normal text-white text-[1.5rem] leading-[2.0625rem]">
+                30%
               </p>
             </div>
             {/* progress bar */}
@@ -83,32 +84,9 @@ export default async function Dashboard() {
               className="bg-[#3B82F6] h-[20px] lg:h-[20px]"
             />
             {/* daily clues popping div */}
-            <div className="grid grid-cols-3 gap-x-6 my-[28px]  lg:my-[53px]  lg:grid-cols-10 ">
-              {dailyCluesCheckboxes.map(
-                ({
-                  icon,
-                  id,
-                  heading,
-                  headingclassName,
-                  boxclassName,
-                  description,
-                  className,
-                }) => (
-                  <div key={id} className={boxclassName}>
-                    <Image
-                      src={icon}
-                      width={103}
-                      height={102}
-                      alt="hyundai creta"
-                    />
-                    <h3 className={headingclassName}>{heading}</h3>
-                    <p className={className}>{description}</p>
-                  </div>
-                )
-              )}
-            </div>
+            <CluesGrid clues={dailyCluesCheckboxes} />
             {/* 3 divs block  */}
-            <div className="w-full flex gap-x-[8px] mb-[28px]  lg:gap-x-[61px] ">
+            <div className="w-full flex gap-x-[8px] mb-0 lg:gap-x-[20px] xl:gap-x-[61px] ">
               {clueBoxData.map(
                 (
                   {
@@ -121,7 +99,7 @@ export default async function Dashboard() {
                 ) => (
                   <div
                     key={index}
-                    className="  border-[0.997px] border-[#3B82F6] rounded-[7px]  bg-[#0F1727] w-[108px] h-[53px] flex flex-col justify-center items-center lg:border-2 lg:border-[#3B82F6] lg:rounded-[15px]  lg:h-[107] lg:w-[347px] gap-y-[5px]  lg:gap-y-[21px] "
+                    className="  border-[0.997px] border-[#3B82F6] rounded-[7px]  bg-[#0F1727] flex-1 h-[53px] flex flex-col justify-center items-center lg:border-2 lg:border-[#3B82F6] lg:rounded-[15px]  lg:h-[107px] gap-y-[5px]  lg:gap-y-[21px] "
                   >
                     <h3 className={headingClassname}>{heading}</h3>
                     <p className={descriptionClassname}> {description}</p>
