@@ -11,7 +11,7 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 interface SuccessModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onScanAnother: () => void;
+    onContinue: () => void;
     locationName?: string;
     locationNameAr?: string;
 }
@@ -19,7 +19,7 @@ interface SuccessModalProps {
 export default function SuccessModal({
     isOpen,
     onClose,
-    onScanAnother,
+    onContinue,
     locationName = 'Innovate Cafe',
     locationNameAr = 'مقهى الإبداع',
 }: SuccessModalProps) {
@@ -70,10 +70,10 @@ export default function SuccessModal({
 
                         <Button
                             type="button"
-                            onClick={onScanAnother}
+                            onClick={onContinue}
                             className="w-full max-w-[380px] h-12 lg:h-[60px] bg-[#374151] hover:bg-[#4B5563] text-white rounded-lg text-base lg:text-lg font-bold font-cairo transition-colors"
                         >
-                            Scan Another / مسح رمز آخر
+                            Navigate to Final Page / الانتقال للصفحة النهائية
                         </Button>
                     </div>
                 </div>

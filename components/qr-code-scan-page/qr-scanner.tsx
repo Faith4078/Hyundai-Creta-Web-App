@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 import { Camera } from 'lucide-react';
 import { Scanner } from '@yudiel/react-qr-scanner';
@@ -39,6 +40,7 @@ import Image from 'next/image';
 type Step = 'idle' | 'location' | 'scanning' | 'success';
 
 export default function QrScanner() {
+  const router = useRouter();
   const [step, setStep] = useState<Step>('idle');
   const [locationDetails, setLocationDetails] = useState<{ en: string, ar: string } | null>(null);
 
@@ -60,9 +62,8 @@ export default function QrScanner() {
     }
   };
 
-  const handleScanAnother = () => {
-    setStep('idle');
-    setLocationDetails(null);
+  const handleNavigateToFinal = () => {
+    router.push('/dashboard/final-page');
   };
 
   return (
@@ -150,8 +151,8 @@ export default function QrScanner() {
 
       <SuccessModal
         isOpen={step === 'success'}
-        onClose={handleScanAnother}
-        onScanAnother={handleScanAnother}
+        onClose={handleNavigateToFinal}
+        onContinue={handleNavigateToFinal}
         locationName={locationDetails?.en || "Detected Location"}
         locationNameAr={locationDetails?.ar || "الموقع المكتشف"}
       />
