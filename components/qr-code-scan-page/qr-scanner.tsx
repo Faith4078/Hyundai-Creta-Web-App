@@ -214,7 +214,7 @@ export default function QrScanner() {
         <Button
           type="button"
           onClick={handleStart}
-          className="w-full max-w-[482px] h-12 lg:h-[60px] bg-[#2DD4BF] hover:bg-[#14B8A6] text-black rounded-[6px] text-base lg:text-lg font-bold flex items-center justify-center gap-2 lg:gap-3 transition-all font-cairo"
+          className="w-full max-w-[482px] h-12 lg:h-[60px] bg-[#2DD4BF] hover:bg-[#14B8A6] text-black rounded-[6px] text-base lg:text-lg font-bold flex items-center justify-center gap-2 lg:gap-3 transition-all duration-300 font-cairo hover:scale-[1.02] active:scale-95 hover:shadow-lg hover:shadow-[#2DD4BF]/20"
         >
           <Camera className="w-5 h-5" />
           <span>Start Scanning</span>

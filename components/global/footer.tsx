@@ -82,7 +82,7 @@ export default function Footer() {
               >
                 <Link
                   href={'#'}
-                  className="font-cairo text-white text-right text-[1.28475rem] leading-[3.30369rem] font-extrabold lg:text-[1.75rem] lg:leading-18 mb-[41px]"
+                  className="font-cairo text-white text-right text-[1.28475rem] leading-[3.30369rem] font-extrabold lg:text-[1.75rem] lg:leading-18 mb-[41px] transition-colors duration-300 hover:text-blue-400"
                 >
                   {mainLink}
                 </Link>
@@ -92,7 +92,7 @@ export default function Footer() {
                       <Link
                         key={subIndex}
                         href={'#'}
-                        className="font-cairo font-normal text-white text-right text-[1.10125rem] leading-[1.51419rem] lg:text-[1.5rem] lg:leading-8.25"
+                        className="font-cairo font-normal text-white text-right text-[1.10125rem] leading-[1.51419rem] lg:text-[1.5rem] lg:leading-8.25 transition-colors duration-300 hover:text-blue-400"
                       >
                         {item}
                       </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
           <div className="self-stretch flex flex-col justify-baseline items-end gap-y-[45px] mt-5 lg:mt-[15px] lg:gap-y-[60px]  ">
             <Image
               src={'/assets/hyundai-logo.png'}
-              className=""
+              className="transition-opacity duration-300 hover:opacity-80"
               alt="hyundai logo"
               width={199}
               height={28}
@@ -123,12 +123,12 @@ export default function Footer() {
                     alt={'hyundai socials'}
                     width={75}
                     height={75}
-                    className="hidden lg:block"
+                    className="hidden lg:block cursor-pointer transition-transform duration-300 hover:scale-110"
                   />
                   <Image
                     src={icon}
                     alt={'hyundai socials'}
-                    className="block lg:hidden"
+                    className="block lg:hidden cursor-pointer transition-transform duration-300 hover:scale-110"
                     width={41}
                     height={41}
                   />

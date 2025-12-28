@@ -45,13 +45,13 @@ export function CluesGrid({ clues }: CluesGridProps) {
                 {clues.map((clue) => (
                     <div
                         key={clue.id}
-                        className={`${clue.boxclassName} cursor-pointer transition-transform hover:scale-105 active:scale-95`}
+                        className={`${clue.boxclassName} flex flex-col items-center cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]`}
                         onClick={() => handleClueClick(clue)}
                     >
                         <Image
                             src={clue.icon}
-                            width={103}
-                            height={102}
+                            width={95}
+                            height={95}
                             alt={clue.heading}
                         />
                         <h3 className={clue.headingclassName}>{clue.heading}</h3>

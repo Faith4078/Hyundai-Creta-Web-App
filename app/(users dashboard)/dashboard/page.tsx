@@ -44,7 +44,7 @@ export default async function Dashboard() {
             <button
               type="button"
               key={heading}
-              className="bg-[#06080E] border border-white flex flex-col justify-center w-[118px] h-[50px] rounded-[7px] py-[11px] lg:w-[253px] lg:h-[107px] lg:py-[22px]  lg:rounded-[15px] lg:hover:cursor-pointer lg:hover:bg-linear-to-r from-blue-500 to-cyan-400"
+              className="bg-[#06080E] border border-white flex flex-col justify-center w-[118px] h-[50px] rounded-[7px] py-[11px] lg:w-[253px] lg:h-[107px] lg:py-[22px]  lg:rounded-[15px] lg:hover:cursor-pointer transition-all duration-300 lg:hover:scale-105 lg:hover:bg-gradient-to-r from-blue-500 to-cyan-400"
             >
               <h3
                 className="font-cairo font-bold text-white text-[0.81775rem] leading-[2.80375rem] text-center lg:text-[1.75rem] lg:leading-[6rem]"
@@ -99,7 +99,7 @@ export default async function Dashboard() {
                 ) => (
                   <div
                     key={index}
-                    className="  border-[0.997px] border-[#3B82F6] rounded-[7px]  bg-[#0F1727] flex-1 h-[53px] flex flex-col justify-center items-center lg:border-2 lg:border-[#3B82F6] lg:rounded-[15px]  lg:h-[107px] gap-y-[5px]  lg:gap-y-[21px] "
+                    className="  border-[0.997px] border-[#3B82F6] rounded-[7px]  bg-[#0F1727] flex-1 h-[53px] flex flex-col justify-center items-center lg:border-2 lg:border-[#3B82F6] lg:rounded-[15px]  lg:h-[107px] gap-y-[5px]  lg:gap-y-[21px] transition-all duration-300 hover:scale-105 cursor-pointer hover:bg-[#1E293B]"
                   >
                     <h3 className={headingClassname}>{heading}</h3>
                     <p className={descriptionClassname}> {description}</p>
@@ -144,13 +144,13 @@ export default async function Dashboard() {
         >
           <button
             type="button"
-            className="bg-[#0F1727] w-[129px] h-[30px] text-white font-cairo font-bold flex items-center justify-center text-[0.689rem] leading-[2.75606rem] rounded-[100px] lg:text-[1.5rem] lg:leading-[6rem] lg:w-[281px] lg:h-[67px]"
+            className="bg-[#0F1727] w-[129px] h-[30px] text-white font-cairo font-bold flex items-center justify-center text-[0.689rem] leading-[2.75606rem] rounded-[100px] lg:text-[1.5rem] lg:leading-[6rem] lg:w-[281px] lg:h-[67px] transition-all duration-300 hover:scale-105 hover:bg-[#1E293B]"
           >
             أعلمني
           </button>
           <button
             type="button"
-            className="bg-[#0F1727] w-[129px] h-[30px] text-white font-cairo font-bold text-[0.689rem] rounded-[100px] flex items-center justify-center leading-[2.75606rem] lg:text-[1.5rem] lg:leading-[6rem] lg:w-[281px] lg:h-[67px]"
+            className="bg-[#0F1727] w-[129px] h-[30px] text-white font-cairo font-bold text-[0.689rem] rounded-[100px] flex items-center justify-center leading-[2.75606rem] lg:text-[1.5rem] lg:leading-[6rem] lg:w-[281px] lg:h-[67px] transition-all duration-300 hover:scale-105 hover:bg-[#1E293B]"
           >
             مغلق
           </button>
@@ -205,7 +205,7 @@ export default async function Dashboard() {
 
           <button
             type="button"
-            className=" rounded-[15px] bg-gradient-to-r from-blue-500 to-cyan-400 font-cairo text-center text-[#1E293B] font-bold text-[1.17838rem] leading-[1.62025rem] lg:text-[1.5rem] lg:leading-[2.0625rem] w-[311px] h-[64px] lg:w-[397px] lg:h-[82px]"
+            className=" rounded-[15px] bg-gradient-to-r from-blue-500 to-cyan-400 font-cairo text-center text-[#1E293B] font-bold text-[1.17838rem] leading-[1.62025rem] lg:text-[1.5rem] lg:leading-[2.0625rem] w-[311px] h-[64px] lg:w-[397px] lg:h-[82px] transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
           >
             عرض الدليل
           </button>
@@ -216,7 +216,7 @@ export default async function Dashboard() {
         {/* lower col */}
         <div className="max-w-[1180px] w-full mx-auto ">
           <div className="flex justify-between items-center ">
-            <p className="font-cairo text-white font-semibold text-[1.02063rem] leading-[3.06188rem] lg:text-[1.5rem] lg:leading-[4.5rem]">
+            <p className="font-cairo text-white font-semibold text-[1.02063rem] leading-[3.06188rem] lg:text-[1.5rem] lg:leading-[4.5rem] cursor-pointer transition-colors duration-300 hover:text-blue-400">
               تحديد الكل كمقروء
             </p>
             <p className="font-cairo text-white font-semibold text-[2.08631rem] leading-[3.12944rem] lg:text-[3rem] lg:leading-[4.5rem]">
@@ -227,7 +227,7 @@ export default async function Dashboard() {
             {notificationsData.map(({ icon, heading, description, id }) => (
               <div
                 key={id}
-                className="w-full bg-[linear-gradient(90deg,#0F1520_0%,#0D121D_100%)] rounded-[25px] flex justify-end items-center  h-[77px] py-[30px] px-[17px] gap-x-[29px] lg:gap-x-[63px] lg:py-[48px] lg:px-[27px] lg:h-[163px]"
+                className="w-full bg-[linear-gradient(90deg,#0F1520_0%,#0D121D_100%)] rounded-[25px] flex justify-end items-center  h-[77px] py-[30px] px-[17px] gap-x-[29px] lg:gap-x-[63px] lg:py-[48px] lg:px-[27px] lg:h-[163px] transition-all duration-300 hover:scale-[1.02] cursor-pointer hover:brightness-110"
               >
                 <div>
                   <h5 className="font-cairo text-white font-bold text-right text-[0.93975rem] leading-[2.11438rem] lg:text-[2rem] lg:leading-[4.5rem]">

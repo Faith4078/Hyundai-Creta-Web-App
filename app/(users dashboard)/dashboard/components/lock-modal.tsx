@@ -41,7 +41,7 @@ export function LockModal({ isOpen, onClose, dayNumber }: LockModalProps) {
 
                     <button
                         onClick={() => router.push("/dashboard/qr-code-scan-page")}
-                        className="w-full max-w-[397px] h-[50px] lg:h-[65px] rounded-[100px] bg-gradient-to-r from-[#3B82F6] to-[#22D3EE] font-cairo text-[#0F172A] font-bold text-[1.1rem] lg:text-[1.5rem] flex items-center justify-center hover:opacity-90 transition-opacity"
+                        className="w-full max-w-[397px] h-[50px] lg:h-[65px] rounded-[100px] bg-gradient-to-r from-[#3B82F6] to-[#22D3EE] font-cairo text-[#0F172A] font-bold text-[1.1rem] lg:text-[1.5rem] flex items-center justify-center hover:opacity-90 transition-all duration-300 hover:scale-[1.02] active:scale-95"
                     >
                         الإجابة
                     </button>

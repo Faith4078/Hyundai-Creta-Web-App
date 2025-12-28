@@ -29,7 +29,7 @@ export default function QrCodeScanPage() {
                         {/* Steps */}
                         <div className="space-y-6 lg:space-y-9">
                             {/* Step 1 */}
-                            <div className="flex items-center group">
+                            <div className="flex items-center group hover:bg-white/5 rounded-xl p-2 -mx-2 transition-colors duration-300 cursor-default">
                                 <div className="w-[42px] h-[42px] lg:w-[52px] lg:h-[52px] bg-[#293644] rounded-full flex items-center justify-center shrink-0 mr-4 lg:mr-6">
                                     <Camera className="w-[18px] h-[18px] lg:w-[22px] lg:h-[22px] text-[#2DD4BF]" />
                                 </div>
@@ -46,7 +46,7 @@ export default function QrCodeScanPage() {
                             </div>
 
                             {/* Step 2 */}
-                            <div className="flex items-center group">
+                            <div className="flex items-center group hover:bg-white/5 rounded-xl p-2 -mx-2 transition-colors duration-300 cursor-default">
                                 <div className="w-[42px] h-[42px] lg:w-[52px] lg:h-[52px] bg-[#293644] rounded-full flex items-center justify-center shrink-0 mr-4 lg:mr-6">
                                     <ScanLine className="w-[18px] h-[18px] lg:w-[22px] lg:h-[22px] text-[#2DD4BF]" />
                                 </div>
@@ -63,7 +63,7 @@ export default function QrCodeScanPage() {
                             </div>
 
                             {/* Step 3 */}
-                            <div className="flex items-center group">
+                            <div className="flex items-center group hover:bg-white/5 rounded-xl p-2 -mx-2 transition-colors duration-300 cursor-default">
                                 <div className="w-[42px] h-[42px] lg:w-[52px] lg:h-[52px] bg-[#293644] rounded-full flex items-center justify-center shrink-0 mr-4 lg:mr-6">
                                     <Hourglass className="w-[18px] h-[18px] lg:w-[22px] lg:h-[22px] text-[#2DD4BF]" />
                                 </div>

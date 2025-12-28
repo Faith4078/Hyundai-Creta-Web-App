@@ -41,7 +41,7 @@ export default function UserDashboardHeader({
             src={'/assets/hyundai-logo.png'}
             width={282}
             height={28}
-            className="hidden lg:block"
+            className="hidden lg:block hover:opacity-80 transition-opacity duration-300"
             alt="notifications icon"
           />
         </Link>
@@ -50,7 +50,7 @@ export default function UserDashboardHeader({
             src={'/assets/hyundai-logo.png'}
             width={113}
             height={16}
-            className="block lg:hidden"
+            className="block lg:hidden hover:opacity-80 transition-opacity duration-300"
             alt="notifications icon"
           />
         </Link>

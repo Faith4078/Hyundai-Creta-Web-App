@@ -149,7 +149,7 @@ export default function FinalPage() {
                 <div className="flex justify-end mb-8">
                     <button
                         onClick={() => router.back()}
-                        className="flex items-center gap-2 px-6 py-2 rounded-lg bg-[#111827]/50 border border-white/5 text-[#9CA3AF] hover:text-white transition-all text-sm"
+                        className="flex items-center gap-2 px-6 py-2 rounded-lg bg-[#111827]/50 border border-white/5 text-[#9CA3AF] hover:text-white transition-all text-sm hover:bg-[#111827] hover:border-white/20 active:scale-95"
                     >
                         <ChevronLeft className="w-4 h-4" />
                         <span>المرحلة النهائية</span>
@@ -191,14 +191,14 @@ export default function FinalPage() {
 
                             <div className="flex items-center justify-end gap-5 pt-2">
                                 <div className="flex items-center gap-4">
-                                    <Button className="h-[52px] min-w-[200px] lg:min-w-[260px] px-8 bg-gradient-to-r from-[#06b6d4] to-[#22d3ee] hover:opacity-90 text-[#0F172A] font-bold text-base rounded-[12px] flex items-center justify-center gap-3 shadow-[0_5px_20px_rgba(6,182,212,0.3)]">
+                                    <Button className="h-[52px] min-w-[200px] lg:min-w-[260px] px-8 bg-gradient-to-r from-[#06b6d4] to-[#22d3ee] hover:opacity-90 text-[#0F172A] font-bold text-base rounded-[12px] flex items-center justify-center gap-3 shadow-[0_5px_20px_rgba(6,182,212,0.3)] hover:scale-[1.02] active:scale-95 transition-all duration-300 hover:shadow-[0_8px_25px_rgba(6,182,212,0.4)]">
                                         <div className="w-5 h-5 flex items-center justify-center">
                                             <span className="text-sm font-bold">?</span>
                                         </div>
                                         <span>فتح الهايلات</span>
                                     </Button>
 
-                                    <div className="w-[52px] h-[52px] rounded-full bg-[#111827] border border-[#22d3ee]/30 flex items-center justify-center text-[#22d3ee] cursor-pointer shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-transform active:scale-95">
+                                    <div className="w-[52px] h-[52px] rounded-full bg-[#111827] border border-[#22d3ee]/30 flex items-center justify-center text-[#22d3ee] cursor-pointer shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-transform active:scale-95 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] duration-300">
                                         <div className="w-7 h-7 border-2 border-dashed border-[#22d3ee]/60 rounded-full flex items-center justify-center">
                                             <span className="text-base font-bold">?</span>
                                         </div>
@@ -255,9 +255,9 @@ export default function FinalPage() {
                                                     setSelectedOption(opt);
                                                     setIsError(false);
                                                 }}
-                                                className={`min-w-[80px] lg:min-w-[100px] h-[52px] rounded-[12px] text-xl font-bold transition-all border-2 flex items-center justify-center ${selectedOption === opt
+                                                className={`min-w-[80px] lg:min-w-[100px] h-[52px] rounded-[12px] text-xl font-bold transition-all border-2 flex items-center justify-center hover:scale-105 active:scale-95 ${selectedOption === opt
                                                     ? 'bg-[#3B82F6] border-white text-white shadow-[0_0_20px_rgba(255,255,255,0.2)]'
-                                                    : 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+                                                    : 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/30'
                                                     }`}
                                             >
                                                 {opt}
@@ -271,7 +271,7 @@ export default function FinalPage() {
                             <Button
                                 onClick={handleFinalSubmit}
                                 disabled={selectedOption === null}
-                                className="w-full h-[64px] bg-gradient-to-r from-[#10B981] to-[#059669] hover:opacity-95 items-center justify-center text-white font-bold text-xl rounded-[20px] gap-3 shadow-[0_10px_30px_rgba(16,185,129,0.25)] transition-all disabled:opacity-50 disabled:grayscale"
+                                className="w-full h-[64px] bg-gradient-to-r from-[#10B981] to-[#059669] hover:opacity-95 items-center justify-center text-white font-bold text-xl rounded-[20px] gap-3 shadow-[0_10px_30px_rgba(16,185,129,0.25)] transition-all disabled:opacity-50 disabled:grayscale hover:scale-[1.02] active:scale-95 hover:shadow-[0_15px_35px_rgba(16,185,129,0.35)] duration-300"
                             >
                                 <CheckCircle className="w-7 h-7 stroke-[2.5px]" />
                                 <span>إرسال الإجابة النهائية</span>

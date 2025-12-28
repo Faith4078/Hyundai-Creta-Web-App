@@ -13,12 +13,12 @@ export default function AvatarBadge() {
     const userImage = session.user.image || '/assets/user-avatar.svg';
 
     return (
-      <div className="flex items-center">
+      <div className="flex items-center cursor-pointer group">
         <div className="flex flex-col gap-y-1 lg:gap-y-2 items-end">
-          <h5 className="text-white font-cairo font-bold text-center text-[0.7rem]  lg:text-[1.25rem] leading-[1rem]">
+          <h5 className="text-white font-cairo font-bold text-center text-[0.7rem]  lg:text-[1.25rem] leading-[1rem] transition-colors duration-300 group-hover:text-blue-400">
             {userName}
           </h5>
-          <p className="font-cairo text-white text-center font-normal text-[0.5rem]  lg:text-[0.875rem] leading-[0.8rem]">
+          <p className="font-cairo text-white text-center font-normal text-[0.5rem]  lg:text-[0.875rem] leading-[0.8rem] transition-colors duration-300 group-hover:text-blue-300">
             المستكشف المستوى 3
           </p>
         </div>
@@ -51,14 +51,14 @@ export default function AvatarBadge() {
           src={'/assets/bell.svg'}
           width={36}
           height={36}
-          className="hidden lg:block"
+          className="hidden lg:block cursor-pointer transition-transform duration-300 hover:scale-110"
           alt="notifications icon"
         />
         <Image
           src={'/assets/bell.svg'}
           width={20}
           height={20}
-          className="block lg:hidden"
+          className="block lg:hidden cursor-pointer transition-transform duration-300 hover:scale-110"
           alt="notifications icon"
         />
       </div>
@@ -76,12 +76,12 @@ export default function AvatarBadge() {
     //   </div>
 
     // </div>
-    <div className="flex items-center">
+    <div className="flex items-center cursor-pointer group">
       <div className="flex flex-col gap-y-1 lg:gap-y-2 items-end">
-        <h5 className="text-white font-cairo font-bold text-center text-[0.7rem]  lg:text-[1.25rem] leading-[1rem]">
+        <h5 className="text-white font-cairo font-bold text-center text-[0.7rem]  lg:text-[1.25rem] leading-[1rem] transition-colors duration-300 group-hover:text-blue-400">
           أحمد ك.
         </h5>
-        <p className="font-cairo text-white text-center font-normal text-[0.5rem]  lg:text-[0.875rem] leading-[0.8rem]">
+        <p className="font-cairo text-white text-center font-normal text-[0.5rem]  lg:text-[0.875rem] leading-[0.8rem] transition-colors duration-300 group-hover:text-blue-300">
           المستكشف المستوى 3
         </p>
       </div>
@@ -99,14 +99,14 @@ export default function AvatarBadge() {
         src={'/assets/bell.svg'}
         width={36}
         height={36}
-        className="hidden lg:block"
+        className="hidden lg:block cursor-pointer transition-transform duration-300 hover:scale-110"
         alt="notifications icon"
       />
       <Image
         src={'/assets/bell.svg'}
         width={20}
         height={20}
-        className="block lg:hidden"
+        className="block lg:hidden cursor-pointer transition-transform duration-300 hover:scale-110"
         alt="notifications icon"
       />
     </div>
