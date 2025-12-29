@@ -10,6 +10,62 @@ export default function Hero() {
   const typedText1 = useTypewriter('امتلكه.', 100);
   const typedText2 = useTypewriter('ابحث عنه.', 100);
 
+  const [timeLeft, setTimeLeft] = React.useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  React.useEffect(() => {
+    // Set the target date to 10 days from the current assumed start date (Dec 29, 2025).
+    // Target: Jan 8, 2026
+    const countDownDate = new Date('Jan 8, 2026 00:00:00').getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      if (distance < 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTimeLeft({ days, hours, minutes, seconds });
+    };
+
+    updateTimer(); // Initial call to avoid delay
+    const interval = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const timerData = [
+    {
+      heading: timeLeft.days < 10 ? `0${timeLeft.days}` : timeLeft.days,
+      description: 'أيام',
+    },
+    {
+      heading: timeLeft.hours < 10 ? `0${timeLeft.hours}` : timeLeft.hours,
+      description: 'ساعات',
+    },
+    {
+      heading: timeLeft.minutes < 10 ? `0${timeLeft.minutes}` : timeLeft.minutes,
+      description: 'دقائق',
+    },
+    {
+      heading: timeLeft.seconds < 10 ? `0${timeLeft.seconds}` : timeLeft.seconds,
+      description: 'ثواني',
+    },
+  ];
+
   return (
     <div className="bg-[url(/assets/creta-background.png)] bg-center bg-no-repeat bg-cover w-full  px-4 py-[40px] min-h-[50vh] lg:min-h-screen lg:pt-[87px] lg:pb-[99px]">
       <div className="max-w-[1296px] w-full mx-auto flex justify-end">
@@ -45,7 +101,7 @@ export default function Hero() {
             </p>
             {/* boxes */}
             <div className="flex justify-end gap-x-4">
-              {countdownTimer.map(({ heading, description }, index) => (
+              {timerData.map(({ heading, description }, index) => (
                 <article
                   key={index}
                   className="w-[67.55px] h-[90.59px] rounded-[15px]  bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] p-[1.5px] lg:w-[92px] lg:h-[107px]"
