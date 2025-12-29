@@ -25,6 +25,7 @@ export default function Header() {
           >
             <div className="w-[151px] h-[49px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[10px] p-[1.5px]">
               <Button
+                suppressHydrationWarning
                 type="button"
                 onClick={() => {
                   authClient.signOut();
@@ -77,6 +78,7 @@ export default function Header() {
           >
             <div className="w-[151px] h-[49px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[10px] p-[1.5px]">
               <Button
+                suppressHydrationWarning
                 type="button"
                 onClick={() => {
                   authClient.signOut();
