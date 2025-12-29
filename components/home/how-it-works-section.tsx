@@ -21,7 +21,7 @@ export default function HowItWorksSection() {
             ({ icon, heading, description, buttonText }, index) => {
               return (
                 <article
-                  className=" flex flex-col justify-between gap-y-[78px]"
+                  className=" flex flex-col justify-between gap-y-[78px] transition-all duration-300 hover:-translate-y-2 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] cursor-default"
                   key={index}
                 >
                   <div>
@@ -40,14 +40,6 @@ export default function HowItWorksSection() {
                     </p>
                   </div>
 
-                  <div className="w-[343px] h-[78px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-[15px] p-[1.5px]">
-                    <button
-                      type="button"
-                      className="w-full h-full flex items-center justify-center rounded-[13px] bg-[#0A0A0A] text-white font-normal font-cairo text-[1.5rem] hover:cursor-pointer"
-                    >
-                      {buttonText}
-                    </button>
-                  </div>
                 </article>
               );
             }
@@ -55,19 +47,19 @@ export default function HowItWorksSection() {
         </div>
         <SlideForHowItWorksSection />
       </div>
-      <button className="mx-auto mt-0 rounded-[100px]  font-cairo text-[#1E293B] text-[1.30275rem] font-extrabold leading-[3.90825rem] w-[170px] h-[43px] text-center flex justify-center items-center gap-[13px] bg-gradient-to-r from-[#3B82F6] to-[#0FF] lg:w-[261px] lg:h-[67px] lg:text-[2rem] lg:leading-24  lg:mt-[78px]">
+      <button className="mx-auto mt-0 rounded-[100px]  font-cairo text-[#1E293B] text-[1.30275rem] font-extrabold leading-[3.90825rem] w-[170px] h-[43px] text-center flex justify-center items-center gap-[13px] bg-gradient-to-r from-[#3B82F6] to-[#0FF] lg:w-[261px] lg:h-[67px] lg:text-[2rem] lg:leading-24  lg:mt-[78px] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] active:scale-95 group">
         <Image
           src={'/assets/arrow.svg'}
           width={48}
           height={48}
-          className="hidden lg:block"
+          className="hidden lg:block transition-transform duration-300 group-hover:-translate-x-1"
           alt="arrow icon"
         />
         <Image
           src={'/assets/arrow.svg'}
           width={35}
           height={35}
-          className="block lg:hidden"
+          className="block lg:hidden transition-transform duration-300 group-hover:-translate-x-1"
           alt="arrow icon"
         />
         ابدأ الآن

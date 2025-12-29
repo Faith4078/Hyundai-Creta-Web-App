@@ -89,7 +89,7 @@ export default function QrCodeScanPage() {
 
                 {/* Footer */}
                 <div className="mt-8 lg:mt-[42px] text-center">
-                    <p className="text-[#9CA3AF] font-cairo text-xs lg:text-sm">© 2025 هيونداي السعودية – جميع الحقوق محفوظة</p>
+                    <p className="text-[#9CA3AF] font-cairo text-xs lg:text-sm">© 2025 هيونداي البحرين – جميع الحقوق محفوظة</p>
                 </div>
             </section>
         </main>

@@ -5,7 +5,7 @@ import ChallengeSectionCountdownBoxes from './countdown-boxes/challenge-section-
 export default function CountdownSection() {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <section className="bg-linear-to-r min-h-[50vh] py-[42px]   from-[#0F1520] via-[#3B82F6] to-[#000001] flex flex-col gap-y-[40px] lg:gap-y-[65px] lg:min-h-screen lg:py-[77px] ">
+    <section className="bg-linear-to-r min-h-[300px] py-[42px]   from-[#0F1520] via-[#3B82F6] to-[#000001] flex flex-col gap-y-[40px] lg:gap-y-[65px] lg:min-h-fit lg:py-[77px] justify-center ">
       <div className="max-w-[813px] w-full mx-auto">
         <h3 className="font-cairo   text-[1.29rem] leding-[1.45rem] text-white text-center  font-black lg:text-[4rem] lg:leading-18">
           العد التنازلي لإطلاق التحدي

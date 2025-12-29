@@ -116,7 +116,7 @@ export const navLinks = [
     link: 'تحدي',
   },
   {
-    link: 'بيت',
+    link: 'الشروط والأحكام',
   },
 ];
 

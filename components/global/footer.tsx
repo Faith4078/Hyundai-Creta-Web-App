@@ -72,7 +72,7 @@ export default function Footer() {
     //   </div>
     // </section>
     <section className="">
-      <div className="bg-gradient-to-br min-h-[50vh] from-[#0A0A0A] via-[#111827] to-[#000] flex flex-col justify-center py-[45px] px-4 lg:min-h-screen lg:py-[75px]">
+      <div className="bg-gradient-to-br min-h-[300px] from-[#0A0A0A] via-[#111827] to-[#000] flex flex-col justify-center py-[35px] px-4 lg:min-h-fit lg:py-[60px]">
         <div className=" flex justify-between items-baseline flex-wrap gap-y-6 lg:no-wrap ">
           {footerLinks.map(({ mainLink, subLinks }, index) => {
             return (

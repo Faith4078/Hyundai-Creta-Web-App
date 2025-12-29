@@ -595,7 +595,7 @@ export default function SignUpForm() {
             cpr_number: data.cprNumber,
           },
           {
-            onError: (ctx) => {},
+            onError: (ctx) => { },
             onSuccess(context) {
               toast.success('Signup Succesfull');
             },
@@ -741,11 +741,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                emailValidation.hasAtSymbol
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${emailValidation.hasAtSymbol
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               يجب أن يحتوي على @
                             </span>
@@ -757,11 +756,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                emailValidation.isValid
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${emailValidation.isValid
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               بريد إلكتروني صحيح
                             </span>
@@ -782,7 +780,7 @@ export default function SignUpForm() {
                 htmlFor="password"
                 className="font-cairo capitalize text-white font-normal text-end  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
               >
-                كلمة المرور
+                كلمة المرور {password.length > 0 && `(${password.length} حروف)`}
               </FieldLabel>
               <Input
                 id="password"
@@ -797,7 +795,7 @@ export default function SignUpForm() {
                   {(() => {
                     const requirements = validatePasswordRequirements(password);
                     const allSatisfied =
-                      requirements.exactLength &&
+                      requirements.minLength &&
                       requirements.hasUpperCase &&
                       requirements.hasLowerCase &&
                       requirements.hasNumber &&
@@ -808,19 +806,18 @@ export default function SignUpForm() {
                       return (
                         <>
                           <div className="flex items-center gap-2 justify-end">
-                            {requirements.exactLength ? (
+                            {requirements.minLength ? (
                               <span className="text-green-500 text-xs">✓</span>
                             ) : (
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                requirements.exactLength
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${requirements.minLength
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
-                              8 أحرف بالضبط
+                              8 أحرف على الأقل
                             </span>
                           </div>
                           <div className="flex items-center gap-2 justify-end">
@@ -830,11 +827,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                requirements.hasUpperCase
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${requirements.hasUpperCase
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               حرف كبير واحد على الأقل
                             </span>
@@ -846,11 +842,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                requirements.hasLowerCase
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${requirements.hasLowerCase
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               حرف صغير واحد على الأقل
                             </span>
@@ -862,11 +857,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                requirements.hasNumber
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${requirements.hasNumber
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               رقم واحد على الأقل
                             </span>
@@ -878,11 +872,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                requirements.hasSpecialChar
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${requirements.hasSpecialChar
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               رمز خاص واحد على الأقل (@$!%*?&#)
                             </span>
@@ -927,11 +920,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                phoneValidation.hasCountryCode
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${phoneValidation.hasCountryCode
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               يبدأ بـ +973
                             </span>
@@ -943,11 +935,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                phoneValidation.hasValidPrefix
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${phoneValidation.hasValidPrefix
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               يحتوي على 3 أو 6 بعد رمز الدولة
                             </span>
@@ -959,11 +950,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                phoneValidation.hasCorrectLength
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${phoneValidation.hasCorrectLength
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               12 حرفًا بالضبط
                             </span>
@@ -982,7 +972,7 @@ export default function SignUpForm() {
                 htmlFor="cprNumber"
                 className="font-cairo capitalize text-white font-normal text-right w-full  text-[0.67525rem] leading-[1.11413rem] lg:text-[1.25rem] lg:leading-[2.0625rem]"
               >
-                رقم الإنعاش القلبي الرئوي
+                الرقم الشخصي
               </FieldLabel>
               <Input
                 id="cprNumber"
@@ -1006,11 +996,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                cprValidation.isOnlyDigits
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${cprValidation.isOnlyDigits
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               أرقام فقط
                             </span>
@@ -1022,11 +1011,10 @@ export default function SignUpForm() {
                               <span className="text-red-500 text-xs">✗</span>
                             )}
                             <span
-                              className={`text-xs ${
-                                cprValidation.hasCorrectLength
-                                  ? 'text-green-500'
-                                  : 'text-red-500'
-                              }`}
+                              className={`text-xs ${cprValidation.hasCorrectLength
+                                ? 'text-green-500'
+                                : 'text-red-500'
+                                }`}
                             >
                               9 أرقام بالضبط
                             </span>

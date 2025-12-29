@@ -7,8 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 export default function Hero() {
-  const typedText1 = useTypewriter('امتلكه.', 100);
-  const typedText2 = useTypewriter('ابحث عنه.', 100);
+  const typedText1 = useTypewriter(' وين الكريتا؟', 100);
 
   const [timeLeft, setTimeLeft] = React.useState({
     days: 0,
@@ -81,10 +80,9 @@ export default function Hero() {
             </button>
           </div>
           <h1 className="font-cairo text-white font-black text-[2.65rem] leading-[2.27rem] lg:text-[5.25rem] lg:leading-[4.5rem] flex">
-            <span className="text-[#3B82F6]" style={{ marginRight: '0.5rem' }}>
+            <span className="text-[#3B82F6]" style={{ marginRight: '0rem' }}>
               {typedText1}
             </span>
-            <span>{typedText2}</span>
           </h1>
 
           <p className="font-cairo text-white  font-bold text-right text-[1.1rem] mt-[23.7px] lg:text-[2.25rem] lg:leading-[4.5rem] lg:mt-[47px] ">
