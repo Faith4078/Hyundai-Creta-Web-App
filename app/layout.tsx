@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" suppressHydrationWarning>
+    <html lang="ar" className="dark" suppressHydrationWarning>
       <body className={`${_cairo.variable} ${_inter.variable} antialiased`}>
         {children}
         <Toaster richColors position="top-right" />

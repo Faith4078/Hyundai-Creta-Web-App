@@ -116,8 +116,13 @@ export default function Footer() {
               تجربة قيادة مستقبلية. اكتشف هيونداي كريتا الجديدة.
             </p>
             <div className="flex justify-end gap-[25px] ">
-              {footerSocialIcons.map(({ icon }, index) => (
-                <div key={index}>
+              {footerSocialIcons.map(({ icon, link }, index) => (
+                <Link
+                  key={index}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src={icon}
                     alt={'hyundai socials'}
@@ -132,7 +137,7 @@ export default function Footer() {
                     width={41}
                     height={41}
                   />
-                </div>
+                </Link>
               ))}
             </div>
           </div>
