@@ -3,6 +3,7 @@ import React from 'react';
 import { auth } from '@/auth';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
+
 export default async function WinnerPage() {
   // const session = await auth.api.getSession({
   //   headers: await headers(),
@@ -10,57 +11,27 @@ export default async function WinnerPage() {
   // if (!session) {
   //   redirect('/sign-in');
   // }
+
   return (
-    // <main className=" w-full min-h-[200vh] ">
-    //   <section className="max-w-[1296px] bg-gradient-to-br from-[#0A0A0A] via-[#111827] to-[#000] w-full  mx-auto px-4">
-    //     <div className="mx-auto flex flex-col items-center gap-y-[42px] mt-[37px] lg:mt-[153px]">
-    //       <Image
-    //         src={'/assets/trophy.svg'}
-    //         width={628}
-    //         height={256}
-    //         alt="hyundai creta car image"
-    //         className=""
-    //       />
-    //       <h1 className="font-inter text-white text-center font-bold text-[3.45638rem] leading-[1.81069rem] lg:text-[6rem] lg:leading-[3.14319rem]">
-    //         مبـروك!
-    //       </h1>
-    //       <p className="font-inter font-bold text-center text-white text-[1.62963rem] leading-[1.81069rem] lg:text-[2.82888rem] lg:leading-[3.14319rem]">
-    //         لقد فزت بالجائزة الكبرى!
-    //       </p>
-    //     </div>
-    //     <Image
-    //       src={'/assets/winner-car.png'}
-    //       width={1296}
-    //       height={613}
-    //       alt="hyundai creta car image"
-    //       className="my-[37px] w-full lg:my-[72px]"
-    //     />
-    //     <div className="mx-auto flex flex-col gap-y-[36px] items-center lg:mb-[126px]">
-    //       <h4 className="text-white font-inter text-center font-bold text-[1.50088rem] leading-[2.09669rem] lg:text-[2.25rem] lg:leading-[3.14319rem]">
-    //         شارك فرحتك مع العالم!
-    //       </h4>
-    //     </div>
-    //   </section>
-    // </main>
-    <main className="w-full min-h-screen">
-      <section className="max-w-[1296px] bg-gradient-to-br from-[#0A0A0A] via-[#111827] to-[#000] w-full min-h-screen mx-auto px-4">
+    <main className="w-full min-h-screen bg-gradient-to-br from-[#0A0A0A] via-[#111827] to-[#000]">
+      <section className="max-w-[1296px] w-full min-h-screen mx-auto px-4">
         <div className="mx-auto flex flex-col items-center gap-y-[42px] pt-[37px] lg:pt-[153px]">
           <Image
             src={'/assets/trophy.svg'}
-            width={628}
-            height={256}
+            width={300}
+            height={122}
             alt="hyundai creta car image"
-            className="hidden lg:block"
+            className="hidden lg:block hover:scale-105 transition-transform duration-500"
           />
           <Image
             src={'/assets/trophy.svg'}
             width={106}
             height={106}
             alt="hyundai creta car image"
-            className="size-[106px] block lg:hidden"
+            className="size-[106px] block lg:hidden hover:scale-105 transition-transform duration-500"
           />
           <h1 className="font-inter text-white text-center font-bold text-[3.45638rem] leading-[1.81069rem] lg:text-[6rem] lg:leading-[3.14319rem]">
-            مبـروك!
+            مبروك!
           </h1>
           <p className="font-inter font-bold text-center text-white text-[1.62963rem] leading-[1.81069rem] lg:text-[2.82888rem] lg:leading-[3.14319rem]">
             لقد فزت بالجائزة الكبرى!
@@ -71,7 +42,7 @@ export default async function WinnerPage() {
           width={1296}
           height={613}
           alt="hyundai creta car image"
-          className="my-[37px] w-full lg:my-[72px]"
+          className="my-[37px] w-full lg:my-[72px] hover:scale-105 transition-transform duration-500"
         />
         <div className="mx-auto flex flex-col gap-y-[36px] items-center pb-[37px] lg:pb-[126px]">
           <h4 className="text-white font-inter text-center font-bold text-[1.50088rem] leading-[2.09669rem] lg:text-[2.25rem] lg:leading-[3.14319rem]">
@@ -79,9 +50,9 @@ export default async function WinnerPage() {
           </h4>
           <button
             type="button"
-            className="bg-gradient-to-r from-[#3B82F6] to-[#0FF] w-[334px] h-[46px] rounded-[10px] text-[#0F172A] text-center flex items-center justify-center font-extrabold  text-[0.83869rem] leading-[1.258rem] lg:w-[501px] lg:h-[70px] lg:rounded-[15px]  lg:text-[1.25731rem]  lg:leading-[6rem] hover:cursor-pointer"
+            className="bg-gradient-to-r from-[#3B82F6] to-[#0FF] w-[334px] h-[46px] rounded-[10px] text-[#0F172A] text-center flex items-center justify-center font-extrabold  text-[0.83869rem] leading-[1.258rem] lg:w-[501px] lg:h-[70px] lg:rounded-[15px]  lg:text-[1.25731rem]  lg:leading-[6rem] hover:cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:brightness-110"
           >
-            شارك على إنستغرام
+            شارك عبر إنستغرام
           </button>
         </div>
       </section>

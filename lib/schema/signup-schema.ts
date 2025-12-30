@@ -198,9 +198,9 @@ export const signUpSchema = z.object({
     .email('يرجى إدخال بريد إلكتروني صحيح يحتوي على @'),
   password: z
     .string()
-    .length(8, 'كلمة المرور يجب أن تكون 8 أحرف بالضبط')
+    .min(8, 'كلمة المرور يجب أن تكون 8 أحرف على الأقل')
     .regex(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8}$/,
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/,
       'كلمة المرور يجب أن تحتوي على حرف كبير، حرف صغير، رقم، ورمز خاص'
     ),
   phoneNumber: z
@@ -236,7 +236,7 @@ export type SignUpFormData = z.infer<typeof signUpSchema>;
 // Password validation helper
 export const validatePasswordRequirements = (password: string) => {
   return {
-    exactLength: password.length === 8,
+    minLength: password.length >= 8,
     hasUpperCase: /[A-Z]/.test(password),
     hasLowerCase: /[a-z]/.test(password),
     hasNumber: /\d/.test(password),

@@ -80,9 +80,18 @@ export const footerLinks = [
 ];
 
 export const footerSocialIcons = [
-  { icon: '/assets/youtube-icon.svg' },
-  { icon: '/assets/tiktok-icon.svg' },
-  { icon: '/assets/instagram-icon.svg' },
+  {
+    icon: '/assets/youtube-icon.svg',
+    link: 'https://www.youtube.com/channel/UCeYX7BOPQa9hqAZhaUE-N4A?view_as=subscriber',
+  },
+  {
+    icon: '/assets/instagram-icon.svg',
+    link: 'https://www.instagram.com/hyundaibahrain/?hl=en',
+  },
+  {
+    icon: '/assets/tiktok-icon.svg', // Placeholder for LinkedIn
+    link: 'https://www.linkedin.com/company/first-motors/',
+  },
 ];
 
 export const countdownTimer = [
@@ -116,7 +125,7 @@ export const navLinks = [
     link: 'تحدي',
   },
   {
-    link: 'بيت',
+    link: 'الشروط والأحكام',
   },
 ];
 

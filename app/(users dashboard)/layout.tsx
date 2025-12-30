@@ -26,12 +26,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <UserDashboardHeader children={<AvatarBadge />} />
+    <SidebarProvider defaultOpen={false} className="no-sidebar-gap">
+      <AppSidebar side="right" className="bg-[#0b1323] text-white" />
 
-      {children}
+      <SidebarInset className="bg-black min-h-screen">
+        <UserDashboardHeader
+          children={
+            <div className="flex items-center gap-2">
+              <AvatarBadge />
+            </div>
+          }
+        />        
 
-      <Footer />
-    </>
+        {children}
+
+        <Footer />
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

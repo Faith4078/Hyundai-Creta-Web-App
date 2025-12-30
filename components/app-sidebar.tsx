@@ -1,227 +1,145 @@
-import * as React from "react"
-import { GalleryVerticalEnd, Minus, Plus } from "lucide-react"
+'use client';
 
-import { SearchForm } from "@/components/search-form"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import * as React from "react"
+import { Home, Settings, Trophy, Info, Phone, LogOut, ArrowLeft } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { authClient } from "@/lib/better-auth/auth-client"
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroup,
+  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
 
-// This is sample data.
-const data = {
-  navMain: [
-    {
-      title: "Getting Started",
-      url: "#",
-      items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
-    },
-  ],
-}
+const menuItems = [
+  {
+    title: "الرئيسية",
+    url: "/dashboard",
+    icon: Home,
+    isActive: true,
+  },
+  {
+    title: "تحدي",
+    url: "/dashboard/final-page",
+    icon: Settings,
+  },
+  {
+    title: "التعليمات",
+    url: "/terms-and-conditions",
+    icon: Info,
+  },
+  {
+    title: "اتصال",
+    url: "/contact-us",
+    icon: Phone,
+  },
+]
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname()
+  const router = useRouter()
+  const { data: session } = authClient.useSession()
+  
+  const userName = session?.user?.username || "أحمد ك."
+  const userImage = session?.user?.image || "/assets/user-avatar.svg"
+
+  const handleLogout = () => {
+    authClient.signOut()
+    toast.success('Logout Successful')
+    router.push('/')
+  }
+
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <GalleryVerticalEnd className="size-4" />
-                </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-medium">Documentation</span>
-                  <span className="">v1.0.0</span>
-                </div>
-              </a>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-        <SearchForm />
+      <SidebarHeader className="flex flex-col items-center justify-center px-4 py-6 border-b border-white/10">
+        <Link href="/" className="flex justify-center">
+          <Image
+            src="/assets/hyundai-logo.png"
+            width={113}
+            height={16}
+            className="w-auto h-auto"
+            alt="HYUNDAI logo"
+          />
+        </Link>
       </SidebarHeader>
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarMenu>
-            {data.navMain.map((item, index) => (
-              <Collapsible
-                key={item.title}
-                defaultOpen={index === 1}
-                className="group/collapsible"
-              >
-                <SidebarMenuItem>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton>
-                      {item.title}{" "}
-                      <Plus className="ml-auto group-data-[state=open]/collapsible:hidden" />
-                      <Minus className="ml-auto group-data-[state=closed]/collapsible:hidden" />
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
-                  {item.items?.length ? (
-                    <CollapsibleContent>
-                      <SidebarMenuSub>
-                        {item.items.map((item) => (
-                          <SidebarMenuSubItem key={item.title}>
-                            <SidebarMenuSubButton
-                              asChild
-                              isActive={item.isActive}
-                            >
-                              <a href={item.url}>{item.title}</a>
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        ))}
-                      </SidebarMenuSub>
-                    </CollapsibleContent>
-                  ) : null}
-                </SidebarMenuItem>
-              </Collapsible>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
+      
+      <SidebarContent className="px-4 py-6">
+        <SidebarMenu className="space-y-2" dir="rtl">
+        {menuItems.map((item) => {
+  const Icon = item.icon
+  // Only active if exact match
+  const isActive = pathname === item.url
+
+  return (
+    <SidebarMenuItem key={item.title}>
+      <SidebarMenuButton
+        asChild
+        className={`
+          w-full h-12 px-4 rounded-lg border transition-all duration-300
+          ${isActive 
+            ? "bg-gradient-to-r from-blue-600 to-cyan-400 border-transparent text-white shadow-lg" 
+            : "bg-transparent border-blue-500/30 text-white hover:bg-white/5 hover:border-blue-500/50"
+          }
+        `}
+      >
+        <Link href={item.url} className="flex items-center justify-between w-full flex-row-reverse">
+          <span className="font-cairo text-base">{item.title}</span>
+          <Icon className="w-5 h-5 flex-shrink-0" />
+        </Link>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  )
+})}
+
+        </SidebarMenu>
       </SidebarContent>
+
+      <SidebarFooter className="px-4 py-6 border-t border-white/10 space-y-4" dir="rtl">
+        {/* User Profile Section */}
+        <div className="flex items-center gap-3 px-2 flex-row-reverse">
+          <div className="flex flex-col gap-1 flex-1 text-right">
+            <h5 className="text-white font-cairo font-bold text-sm leading-tight">
+              {userName}
+            </h5>
+            <p className="text-white/80 font-cairo text-xs leading-tight">
+              المستكشف المستوى 3
+            </p>
+          </div>
+          <Avatar className="w-12 h-12 flex-shrink-0">
+            <AvatarImage src={userImage} alt={userName} />
+            <AvatarFallback>
+              <Image
+                src="/assets/user-avatar.svg"
+                width={48}
+                height={48}
+                alt="User avatar"
+              />
+            </AvatarFallback>
+          </Avatar>
+        </div>
+
+        {/* Logout Button */}
+        <Button
+          onClick={handleLogout}
+          className="w-full h-12 px-4 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-400 text-white font-cairo text-base font-medium hover:opacity-90 transition-opacity duration-300 flex items-center justify-between flex-row-reverse cursor-pointer"
+        >
+          <span>تسجيل الخروج</span>
+          <div className="w-5 h-5 flex items-center justify-center border border-white/20 rounded">
+            <ArrowLeft className="w-3 h-3" />
+          </div>
+        </Button>
+      </SidebarFooter>
+      
       <SidebarRail />
     </Sidebar>
   )

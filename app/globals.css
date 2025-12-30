@@ -124,9 +124,32 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html,
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  .card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: --spacing(6);
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+@layer components {
+  .animated-gradient-border {
+    background: linear-gradient(90deg, #3b82f6, #00ffff, #3b82f6, #00ffff);
+    background-size: 200% 100%;
+    animation: gradientShift 3s linear infinite;
+  }
+}
+
+/* Dashboard sidebar: prevent layout from shifting when opening */
+.no-sidebar-gap [data-slot="sidebar-gap"] {
+  width: 0 !important;
 }
 
 #borderBtn::before {
@@ -149,3 +172,16 @@
     #000 100%
   );
 }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
