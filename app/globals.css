@@ -147,6 +147,11 @@
   }
 }
 
+/* Dashboard sidebar: prevent layout from shifting when opening */
+.no-sidebar-gap [data-slot="sidebar-gap"] {
+  width: 0 !important;
+}
+
 #borderBtn::before {
   content: '';
   position: absolute;
