@@ -1,6 +1,6 @@
-## Note
+# Note
 
-# For Name translation
+## For Name translation
 
 For 150k users, you'll need a paid translation service. Here's the reality:
 Cost Analysis:
