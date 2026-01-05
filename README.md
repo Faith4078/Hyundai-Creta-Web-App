@@ -26,14 +26,14 @@ Cost: ~$40-50
 
 ## Env varables
 
-# Supabase
+### Supabase
 
 - DATABASE_URL=
 - NEXT_PUBLIC_SUPABASE_URL=
 - NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 - SUPABASE_SECRET_KEY=
 
-# Better Auth
+### Better Auth
 
 - BETTER_AUTH_SECRET=
 - BETTER_AUTH_URL=
