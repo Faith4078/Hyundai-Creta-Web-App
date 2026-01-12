@@ -241,126 +241,16 @@ export const clueBoxData = [
 ];
 
 export const dailyCluesCheckboxes = [
-  {
-    id: 1,
-    icon: '/assets/countdown-padlock-icon.svg',
-    heading: 'اليوم العاشر',
-    description: 'أخير',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-4 lg:gap-y-[19px] lg:order-1  lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    className:
-      'font-cairo text-[#ADADAD] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 2,
-    icon: '/assets/countdown-padlock-icon.svg',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-5 lg:gap-y-[19px] lg:order-2 lg:w-[102px]',
-    heading: 'اليوم التاسع',
-    description: 'مغلق',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    className:
-      'font-cairo text-[#ADADAD] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 3,
-    icon: '/assets/countdown-padlock-icon.svg',
-
-    heading: 'اليوم الثامن',
-    description: 'مغلق',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-6 lg:gap-y-[19px] lg:order-3 lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    className:
-      'font-cairo text-[#ADADAD] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 4,
-    icon: '/assets/countdown-padlock-icon.svg',
-    heading: 'اليوم السابع',
-    description: 'مغلق',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-7 lg:gap-y-[19px] lg:order-4 lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    className:
-      'font-cairo text-[#ADADAD] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 5,
-    icon: '/assets/countdown-padlock-icon.svg',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-8 lg:gap-y-[19px] lg:order-5 lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    heading: 'اليوم السادس',
-    description: 'مغلق',
-    className:
-      'font-cairo text-[#ADADAD] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 6,
-    icon: '/assets/countdown-padlock-icon.svg',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-9 lg:gap-y-[19px] lg:order-6  lg:w-[102px]',
-    heading: 'اليوم الخامس',
-    description: 'مغلق',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    className:
-      'font-cairo text-[#ADADAD] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 7,
-    icon: '/assets/countdown-padlock-icon.svg',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-10 lg:gap-y-[19px] lg:order-7  lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    heading: 'اليوم الرابع',
-    description: 'مغلق',
-    className:
-      'font-cairo text-[#ADADAD] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 8,
-    icon: '/assets/yellow-padlock-icon.svg',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-1 lg:gap-y-[19px] lg:order-8 lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem]  lg:leading-[2.0625rem] ',
-    heading: 'اليوم الثالث',
-    description: 'حاضِر',
-    className:
-      'font-cairo text-[#EAB308] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 9,
-    icon: '/assets/arrow-icon.svg',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] order-2 lg:gap-y-[19px] lg:order-9  lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem]   lg:text-[1rem] lg:leading-[2.0625rem]',
-    heading: 'اليوم الثاني',
-    description: 'مكتمل',
-    className:
-      'font-cairo text-[#22C55E] text-center font-bold text-[0.86981rem] leading-[2.05031rem]  lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
-  {
-    id: 10,
-    icon: '/assets/arrow-icon.svg',
-    boxclassName:
-      'w-[99px] flex flex-col gap-y-[10px] lg:gap-y-[19px] order-3 lg:order-10 lg:w-[102px]',
-    headingclassName:
-      'font-cairo text-white text-center font-bold text-[0.97356rem] leading-[2.00794rem] lg:text-[1rem] lg:leading-[2.0625rem]',
-    heading: 'اليوم الأول',
-    description: 'مكتمل',
-    dir: 'rtl',
-    className:
-      'font-cairo text-[#22C55E] text-center font-bold text-[0.86981rem] leading-[2.05031rem] lg:text-[0.875rem] lg:leading-[2.0625rem]',
-  },
+  { id: 1, dayNumber: 10, heading: 'اليوم العاشر', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-4 lg:order-1 lg:w-[102px]' },
+  { id: 2, dayNumber: 9, heading: 'اليوم التاسع', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-5 lg:order-2 lg:w-[102px]' },
+  { id: 3, dayNumber: 8, heading: 'اليوم الثامن', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-6 lg:order-3 lg:w-[102px]' },
+  { id: 4, dayNumber: 7, heading: 'اليوم السابع', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-7 lg:order-4 lg:w-[102px]' },
+  { id: 5, dayNumber: 6, heading: 'اليوم السادس', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-8 lg:order-5 lg:w-[102px]' },
+  { id: 6, dayNumber: 5, heading: 'اليوم الخامس', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-9 lg:order-6 lg:w-[102px]' },
+  { id: 7, dayNumber: 4, heading: 'اليوم الرابع', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-10 lg:order-7 lg:w-[102px]' },
+  { id: 8, dayNumber: 3, heading: 'اليوم الثالث', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-1 lg:order-8 lg:w-[102px]' },
+  { id: 9, dayNumber: 2, heading: 'اليوم الثاني', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-2 lg:order-9 lg:w-[102px]' },
+  { id: 10, dayNumber: 1, heading: 'اليوم الأول', boxclassName: 'w-[99px] flex flex-col gap-y-[10px] order-3 lg:order-10 lg:w-[102px]' },
 ];
+
+

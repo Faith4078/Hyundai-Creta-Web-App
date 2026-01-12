@@ -14,10 +14,19 @@ import {
     notificationsData,
 } from '@/lib/data';
 import Image from 'next/image';
+import { getUserDays } from '@/supabase/client';
+import { authClient } from '@/lib/better-auth/auth-client';
+
 
 interface DashboardClientProps {
     welcomeMessage: string;
 }
+// Define the type for user data
+interface UserData {
+    days: number;
+    created_at: string;
+    days_completed: number[]; // 👈 IMPORTANT
+  }
 
 // Animation variants
 const fadeInUp: Variants = {
@@ -123,6 +132,95 @@ function AnimatedSection({
 export default function DashboardClient({
     welcomeMessage,
 }: DashboardClientProps) {
+    const { data: session } = authClient.useSession()
+    console.log("data", session);
+    const [userData, setUserData] = useState<UserData>({
+        days: 0,
+        created_at: "",
+        days_completed: []
+      });
+      
+  // totalDays can come from your data, e.g., length of challenges array
+  const totalDays = dailyCluesCheckboxes?.length ?? 10; // fallback to 10 if clues is undefined
+
+    useEffect(() => {
+      if (!session?.user?.id) return;
+    
+      (async () => {
+        const data = await getUserDays(session.user.id);
+        setUserData(data); // store full object
+        console.log("userData", data);
+      })();
+    }, [session?.user?.id]);
+
+      // Calculate percentage
+  const completedDays = userData?.days ?? 0;
+  const progressPercent = Math.min(
+    Math.round((completedDays / totalDays) * 100),
+    100
+  );
+
+// Example text
+const progressText = `تم إكمال ${completedDays} من ${totalDays} تحديات`;
+
+const TOTAL_DAYS = 10;
+
+const remainingDays = Math.max(TOTAL_DAYS - completedDays, 0);
+
+const createdAt = userData?.created_at;
+
+let unlockedDays = 1; // day 1 always unlocked
+
+if (createdAt) {
+  const createdTime = new Date(createdAt).getTime();
+  const now = Date.now();
+
+  const diffInMs = now - createdTime;
+  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+  unlockedDays = Math.min(diffInDays + 1, TOTAL_DAYS);
+}
+const activeDays =
+  unlockedDays > completedDays
+    ? unlockedDays - completedDays
+    : 0;
+
+
+
+const dynamicClueBoxData = [
+    {
+      heading: String(remainingDays).padStart(2, "0"),
+      description: "متبقي",
+      descriptionClassname:
+        "font-cairo text-white text-[0.74781rem] font-normal leading-[1.02825rem] lg:text-[1.5rem] lg:leading-[2.0625rem]",
+      headingClassname:
+        "font-cairo text-white text-center font-bold text-[0.74781rem] leading-[1.02825rem] lg:text-[1.5rem] lg:leading-[2.0625rem]",
+    },
+    {
+      heading: String(activeDays).padStart(2, "0"),
+      description: "نشيط",
+      descriptionClassname:
+        "font-cairo text-white text-[0.74781rem] font-normal leading-[1.02825rem] lg:text-[1.5rem] lg:leading-[2.0625rem]",
+      headingClassname:
+        "font-cairo text-[#EAB308] text-center font-bold text-[0.74781rem] leading-[1.02825rem] lg:text-[1.5rem] lg:leading-[2.0625rem]",
+    },
+    {
+      heading: String(completedDays).padStart(2, "0"),
+      description: "مكتمل",
+      descriptionClassname:
+        "font-cairo text-white text-[0.74781rem] font-normal leading-[1.02825rem] lg:text-[1.5rem] lg:leading-[2.0625rem]",
+      headingClassname:
+        "font-cairo text-[#22C55E] text-center font-bold text-[0.74781rem] leading-[1.02825rem] lg:text-[1.5rem] lg:leading-[2.0625rem]",
+    },
+  ];
+  
+    // if (session?.user?.id) {
+    //     getUserDays(session?.user?.id).then(days => {
+    //       console.log("getuserdays", days);
+    //     }).catch(console.error);
+    //   }
+      
+      
     return (
         <main>
             {/* dashboard hero section */}
@@ -205,19 +303,19 @@ export default function DashboardClient({
                     <div className="w-full flex flex-col rounded-[10px] bg-[#0A0A0A] px-[20px] lg:px-[70px] pb-[20px] lg:pb-[40px]">
                         <div className="w-full flex items-center justify-between py-[20px] lg:py-[40px]">
                             <p className="font-cairo text-white font-normal text-[0.90725rem] leading-[1.2475rem] lg:text-[1.5rem] lg:leading-[2.0625rem]">
-                                تم إكمال 3 من 10 تحديات
+                                {progressText}
                             </p>
                             <p className="font-cairo font-normal text-white text-[1.5rem] leading-[2.0625rem]">
-                                30%
+                            {progressPercent}%
                             </p>
                         </div>
                         {/* progress bar */}
                         <Progress
-                            value={20}
+                            value={progressPercent}
                             className="bg-[#3B82F6] h-[20px] lg:h-[20px]"
                         />
                         {/* daily clues popping div */}
-                        <CluesGrid clues={dailyCluesCheckboxes} />
+                         <CluesGrid clues={dailyCluesCheckboxes} userData={userData} />
                         {/* 3 divs block  */}
                         <motion.div
                             initial="hidden"
@@ -226,26 +324,19 @@ export default function DashboardClient({
                             variants={staggerContainer}
                             className="w-full flex gap-x-[8px] mb-0 lg:gap-x-[20px] xl:gap-x-[61px] "
                         >
-                            {clueBoxData.map(
-                                (
-                                    {
-                                        heading,
-                                        description,
-                                        descriptionClassname,
-                                        headingClassname,
-                                    },
-                                    index
-                                ) => (
-                                    <motion.div
-                                        key={index}
-                                        variants={fadeInUp}
-                                        className="  border-[0.997px] border-[#3B82F6] rounded-[7px]  bg-[#0F1727] flex-1 h-[53px] flex flex-col justify-center items-center lg:border-2 lg:border-[#3B82F6] lg:rounded-[15px]  lg:h-[107px] gap-y-[5px]  lg:gap-y-[21px] transition-all duration-300 hover:scale-105 cursor-pointer hover:bg-[#1E293B]"
-                                    >
-                                        <h3 className={headingClassname}>{heading}</h3>
-                                        <p className={descriptionClassname}> {description}</p>
-                                    </motion.div>
-                                )
-                            )}
+                            {dynamicClueBoxData?.map(
+  ({ heading, description, descriptionClassname, headingClassname }, index) => (
+    <motion.div
+      key={index}
+      variants={fadeInUp}
+      className="border-[0.997px] border-[#3B82F6] rounded-[7px] bg-[#0F1727] flex-1 h-[53px] flex flex-col justify-center items-center lg:border-2 lg:rounded-[15px] lg:h-[107px] gap-y-[5px] lg:gap-y-[21px] transition-all duration-300 hover:scale-105 cursor-pointer hover:bg-[#1E293B]"
+    >
+      <h3 className={headingClassname}>{heading}</h3>
+      <p className={descriptionClassname}>{description}</p>
+    </motion.div>
+  )
+)}
+
                         </motion.div>
                     </div>
                 </motion.div>

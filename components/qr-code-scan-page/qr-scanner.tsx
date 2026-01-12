@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '../ui/button';
 import { Camera, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Scanner } from '@yudiel/react-qr-scanner';
@@ -56,6 +56,11 @@ export default function QrScanner() {
   const [error, setError] = useState<string | null>(null);
   const [isVerifying, setIsVerifying] = useState(false);
   const [verificationResult, setVerificationResult] = useState<{ name: string, ar: string } | null>(null);
+
+  const searchParams = useSearchParams();
+  const dayNumber = searchParams.get("day");
+
+  console.log("finalyNumber", dayNumber);
 
   const handleStart = () => {
     setStep('location');
@@ -150,7 +155,7 @@ export default function QrScanner() {
   };
 
   const handleNavigateToFinal = () => {
-    router.push('/dashboard/final-page');
+    router.push(`/dashboard/final-page?day=${dayNumber}`);
   };
 
   return (

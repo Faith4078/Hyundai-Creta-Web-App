@@ -54,6 +54,7 @@ export async function saveUserData(userData: {
     agree_to_terms: userData.agreeToTerms,
     avatar: userData.profileImageUrl,
     terms_agreed_at: new Date().toISOString(),
+    days:0,
   });
 
   if (profileError) {
@@ -61,3 +62,60 @@ export async function saveUserData(userData: {
     return profileError;
   }
 }
+
+export async function getUserDays(userId: string) {
+  const { data, error } = await supabase
+    .from('users')
+    .select('days,created_at,days_completed')
+    .eq('id', userId)
+    .single();
+ 
+  if (error) throw error;
+  return data;
+}
+
+// Update user days incrementally
+export async function updateUserDays(
+  userId: string,
+  day: number // 1 → 10
+) {
+  if (day < 1 || day > 10) {
+    throw new Error("Day must be between 1 and 10");
+  }
+
+  const user = await getUserDays(userId);
+  if (!user) throw new Error("User not found");
+
+  const currentDays = user.days ?? 0;
+
+  // Cap at 10
+  if (currentDays >= 10) {
+    return { message: "Days already maxed at 10" };
+  }
+
+  // Ensure days_completed exists
+  const daysCompleted: number[] = Array.isArray(user.days_completed)
+    ? [...user.days_completed]
+    : Array(10).fill(0);
+
+  // Flip the requested day
+  daysCompleted[day - 1] = 1;
+
+  const { data, error } = await supabase
+    .from("users")
+    .update({
+      days: currentDays + 1, // ✅ increment
+      days_completed: daysCompleted,
+    })
+    .eq("id", userId)
+    .select()
+    .single();
+
+  if (error) throw error;
+
+  return data;
+}
+
+
+ 
+ 
