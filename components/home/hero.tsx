@@ -99,6 +99,17 @@ export default function Hero() {
         {/* right-col */}
 
         <div className="text-right flex flex-col items-end">
+          <motion.div
+            variants={fadeInUp}
+            className="w-[156px] h-[36px] mb-[47px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ml-auto lg:w-[234px] g:h-[78px]"
+          >
+            <button
+              type="button"
+              className="w-full h-full flex items-center justify-center rounded-full bg-[#0A0A0A] text-white font-normal font-cairo text-[0.67rem]  leading-[4rem] lg:text-base lg:leading-24 hover:cursor-pointer hover:scale-105 transition-transform duration-300 active:scale-95"
+            >
+              التحدي النهائي في انتظارك
+            </button>
+          </motion.div>
           <motion.h1
             variants={fadeInUp}
             className="font-cairo text-white font-black text-[2.65rem] leading-[2.27rem] lg:text-[5.25rem] lg:leading-[4.5rem] flex"
