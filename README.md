@@ -1,6 +1,6 @@
-## Note
+# Note
 
-# For Name translation
+## For Name translation
 
 For 150k users, you'll need a paid translation service. Here's the reality:
 Cost Analysis:
@@ -26,15 +26,15 @@ Cost: ~$40-50
 
 ## Env varables
 
-# Supabase
+### Supabase
 
-DATABASE_URL=
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
-SUPABASE_SECRET_KEY=
+- DATABASE_URL=
+- NEXT_PUBLIC_SUPABASE_URL=
+- NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+- SUPABASE_SECRET_KEY=
 
-# Better Auth
+### Better Auth
 
-BETTER_AUTH_SECRET=cNFdzkAG73u4wfPoFKdXaL5bf5bfhqGi
-BETTER_AUTH_URL=http://localhost:3000
-NEXT_PUBLIC_URL=https://creta-treasure-hunting.vercel.app/
+- BETTER_AUTH_SECRET=
+- BETTER_AUTH_URL=
+- NEXT_PUBLIC_URL=
