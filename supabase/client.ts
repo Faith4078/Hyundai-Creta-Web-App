@@ -56,7 +56,7 @@ export async function saveUserData(userData: {
     email_address: userData.email,
     cpr_number: userData.cprNumber,
     agree_to_terms: userData.agreeToTerms,
-    avatar: userData.profileImageUrl,
+    user_image: userData.profileImageUrl,
     terms_agreed_at: new Date().toISOString(),
     days: 0,
   });

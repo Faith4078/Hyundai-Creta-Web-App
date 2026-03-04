@@ -18,6 +18,7 @@ import { signInSchema, type SignInFormData } from '@/lib/schema/signin-schema';
 import { toast } from 'sonner';
 import { authClient } from '@/lib/better-auth/auth-client';
 import PasswordRememberMeConfirmation from './password-rememberme-confirmation';
+import { useRouter } from 'next/navigation';
 
 export default function SignInForm() {
   const {
@@ -31,6 +32,7 @@ export default function SignInForm() {
     mode: 'onBlur',
     reValidateMode: 'onChange',
   });
+  const router = useRouter();
 
   const onSubmit = async (data: SignInFormData) => {
     if (isSubmitting) {
@@ -58,7 +60,7 @@ export default function SignInForm() {
       }
 
       setTimeout(() => {
-        window.location.href = '/dashboard';
+        router.push('/dashboard');
       }, 3500);
     } catch (error: any) {
       console.error('Sign In failed:', error);

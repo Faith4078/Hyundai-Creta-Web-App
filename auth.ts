@@ -12,12 +12,18 @@ export const auth = betterAuth({
   ],
   database: drizzleAdapter(db, {
     provider: 'pg',
-    schema,
+    schema: {
+      user: schema.users,
+      session: schema.user_sessions,
+      account: schema.accounts,
+      verification: schema.verifications,
+    },
   }),
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
     autoSignIn: true,
+    passwordOnUser: false, // Matches app-schema.ts where password is in accounts table
   },
   plugins: [
     admin({
@@ -32,11 +38,14 @@ export const auth = betterAuth({
     username(),
   ],
   user: {
-    modelName: 'users', // Custom table name
+    modelName: 'users',
     fields: {
       name: 'full_name',
       email: 'email_address',
       image: 'user_image',
+      emailVerified: 'email_verified',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
     },
     additionalFields: {
       first_name: {
@@ -77,38 +86,55 @@ export const auth = betterAuth({
         defaultValue: false,
         input: true,
       },
+      banReason: {
+        type: 'string',
+        fieldName: 'ban_reason',
+      },
+      banExpires: {
+        type: 'date',
+        fieldName: 'ban_expires',
+      },
     },
   },
   session: {
     modelName: 'user_sessions',
     fields: {
       userId: 'user_id',
+      expiresAt: 'expires_at',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      ipAddress: 'ip_address',
+      userAgent: 'user_agent',
     },
   },
   account: {
-    modelName: 'accounts', // Custom table name
+    modelName: 'accounts',
     fields: {
       userId: 'user_id',
       accountId: 'account_id',
       providerId: 'provider_id',
       accessToken: 'access_token',
       refreshToken: 'refresh_token',
+      idToken: 'id_token',
+      accessTokenExpiresAt: 'access_token_expires_at',
+      refreshTokenExpiresAt: 'refresh_token_expires_at',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
     },
   },
   verification: {
-    modelName: 'verifications', // Custom table name
+    modelName: 'verifications',
     fields: {
       identifier: 'email_identifier',
       value: 'verification_value',
       expiresAt: 'expires_at',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
     },
   },
 
   secret: process.env.BETTER_AUTH_SECRET!,
-  baseURL:
-    process.env.NODE_ENV === 'production'
-      ? process.env.NEXT_PUBLIC_URL
-      : process.env.BETTER_AUTH_URL || 'http://localhost:3000',
+  baseURL: process.env.BETTER_AUTH_URL || (process.env.NEXT_PUBLIC_URL ? process.env.NEXT_PUBLIC_URL : (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000')),
   basePath: '/api/auth',
 });
 
