@@ -15,8 +15,8 @@ export function middleware(_request: NextRequest) {
         script-src 'self' 'unsafe-eval' 'unsafe-inline' https:;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
-        img-src 'self' blob: data: https://bfudvcqvyaxvyfrxrjnf.supabase.co;
-        connect-src 'self' https://bfudvcqvyaxvyfrxrjnf.supabase.co https://*.supabase.co;
+        img-src 'self' blob: data: https://*.supabase.co;
+        connect-src 'self' https://*.supabase.co;
         frame-src 'self';
         object-src 'none';
         base-uri 'self';
