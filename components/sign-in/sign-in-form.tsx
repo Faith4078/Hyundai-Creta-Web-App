@@ -25,6 +25,7 @@ export default function SignInForm() {
     handleSubmit,
     formState: { errors, touchedFields, isSubmitting },
     trigger,
+    setValue,
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
     mode: 'onBlur',
