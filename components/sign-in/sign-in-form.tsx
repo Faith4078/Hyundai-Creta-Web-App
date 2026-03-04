@@ -147,7 +147,8 @@ export default function SignInForm() {
                 </div>
               </Field>
               <PasswordRememberMeConfirmation
-                register={register}
+                setValue={setValue}
+                trigger={trigger}
                 error={errors.rememberMe?.message}
                 disabled={isSubmitting}
               />

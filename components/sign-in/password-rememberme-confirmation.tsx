@@ -6,13 +6,15 @@ import { UseFormRegister } from 'react-hook-form';
 import { SignInFormData } from '@/lib/schema/signin-schema';
 
 interface RememberMeConfirmationProps {
-  register: UseFormRegister<SignInFormData>;
+  setValue: any;
+  trigger: any;
   error?: string;
   disabled: boolean;
 }
 
 export default function PasswordRememberMeConfirmation({
-  register,
+  setValue,
+  trigger,
   error,
   disabled,
 }: RememberMeConfirmationProps) {
@@ -29,9 +31,8 @@ export default function PasswordRememberMeConfirmation({
           id="terms"
           disabled={disabled}
           onCheckedChange={(checked) => {
-            register('rememberMe').onChange({
-              target: { value: checked, name: 'rememberMe' },
-            });
+            setValue('rememberMe', checked === true);
+            trigger('rememberMe');
           }}
         />
       </div>
@@ -39,7 +40,7 @@ export default function PasswordRememberMeConfirmation({
       {error && (
         <div className="min-h-[20px]">
           <p className="text-red-500 text-xs text-right">
-            Please ensure to tick this
+            {error}
           </p>
         </div>
       )}
