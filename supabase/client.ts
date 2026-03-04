@@ -11,16 +11,20 @@ export const supabase = createClient();
 
 // Helper function to upload profile image
 export async function uploadProfileImage(file: File, username: string) {
-  const fileExt = file.name.split('.').pop();
+  const fileExt = file.name.split('.').pop()?.toLowerCase() ?? 'jpg';
   const fileName = `${username}-${Date.now()}.${fileExt}`;
   const filePath = `profiles/${fileName}`;
 
   const { data, error } = await supabase.storage
     .from('users_images')
-    .upload(filePath, file);
+    .upload(filePath, file, {
+      upsert: true,
+      contentType: file.type,
+    });
 
   if (error) {
-    throw error;
+    console.error('Image upload error:', error.message);
+    throw new Error(`فشل رفع الصورة: ${error.message}`);
   }
 
   // Get public URL
@@ -54,7 +58,7 @@ export async function saveUserData(userData: {
     agree_to_terms: userData.agreeToTerms,
     avatar: userData.profileImageUrl,
     terms_agreed_at: new Date().toISOString(),
-    days:0,
+    days: 0,
   });
 
   if (profileError) {
@@ -69,7 +73,7 @@ export async function getUserDays(userId: string) {
     .select('days,created_at,days_completed')
     .eq('id', userId)
     .single();
- 
+
   if (error) throw error;
   return data;
 }
@@ -117,5 +121,5 @@ export async function updateUserDays(
 }
 
 
- 
- 
+
+
