@@ -58,7 +58,7 @@ export default function CountdownSection() {
         onMouseLeave={() => setIsHovered(false)}
         className="relative overflow-hidden w-[172px] h-[41px] text-center flex items-center justify-center mx-auto bg-white rounded-[100px] font-cairo font-bold text-[0.92138rem] leading-[3.68556rem] lg:h-[67px] lg:w-[281px] lg:text-[1.5rem] lg:leading-24 cursor-pointer"
       >
-        <span
+        {/* <span
           style={{
             position: 'relative',
             zIndex: 10,
@@ -67,7 +67,7 @@ export default function CountdownSection() {
           }}
         >
           احصل على الإشعارات
-        </span>
+        </span> */}
         <span
           style={{
             position: 'absolute',
