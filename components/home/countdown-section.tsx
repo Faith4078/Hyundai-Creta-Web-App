@@ -48,7 +48,7 @@ export default function CountdownSection() {
         <ChallengeSectionCountdownBoxes />
       </motion.div>
 
-      {/* <motion.button
+      <motion.button
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -81,7 +81,7 @@ export default function CountdownSection() {
             transition: 'transform 0.3s ease-in-out',
           }}
         ></span>
-      </motion.button> */}
+      </motion.button>
     </section>
   );
 }

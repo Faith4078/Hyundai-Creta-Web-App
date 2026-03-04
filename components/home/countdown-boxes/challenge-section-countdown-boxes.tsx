@@ -1,5 +1,5 @@
 'use client';
-import { CHALLENGE_START_DATE } from '@/lib/data';
+import { countdownTimer } from '@/lib/data';
 import React from 'react';
 
 export default function ChallengeSectionCountdownBoxes() {
@@ -11,10 +11,9 @@ export default function ChallengeSectionCountdownBoxes() {
   });
 
   React.useEffect(() => {
-    // End date = start date + 10 days
-    const endDate = new Date(CHALLENGE_START_DATE);
-    endDate.setDate(endDate.getDate() + 10);
-    const countDownDate = endDate.getTime();
+    // Set the target date to 10 days from the current assumed start date (Dec 29, 2025).
+    // Target: Jan 8, 2026
+    const countDownDate = new Date('Jan 8, 2026 00:00:00').getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();

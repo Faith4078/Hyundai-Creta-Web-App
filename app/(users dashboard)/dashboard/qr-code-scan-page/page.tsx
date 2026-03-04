@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import QrScanner from '@/components/qr-code-scan-page/qr-scanner';
 import { Camera, ScanLine, Hourglass } from 'lucide-react';
 
@@ -84,9 +83,7 @@ export default function QrCodeScanPage() {
 
                     {/* Right Panel - Scanner */}
                     <div className="min-h-[462px] lg:h-[632px] rounded-b-[24px] lg:rounded-r-[24px] lg:rounded-bl-none flex-1 flex flex-col justify-center order-1 lg:order-2 bg-[#222C3C]">
-                        <Suspense fallback={<div className="flex items-center justify-center h-full text-white font-cairo">جاري التحميل...</div>}>
-                            <QrScanner />
-                        </Suspense>
+                        <QrScanner />
                     </div>
                 </div>
 
