@@ -74,9 +74,28 @@ export const UploadButton: React.FC<UploadButtonProps> = ({
     fileInputRef.current?.click();
   };
 
+  const [localError, setLocalError] = React.useState<string | null>(null);
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const file = e.target.files?.[0] || null;
+    setLocalError(null);
+
+    if (file) {
+      // Enforce 5 MB limit
+      if (file.size > 5 * 1024 * 1024) {
+        setLocalError('حجم الصورة يجب أن يكون 5 ميجابايت كحد أقصى');
+        e.target.value = '';
+        return;
+      }
+      // Enforce accepted types
+      if (!['image/jpeg', 'image/png', 'image/jpg'].includes(file.type)) {
+        setLocalError('يجب أن تكون الصورة بصيغة JPEG أو PNG فقط');
+        e.target.value = '';
+        return;
+      }
+    }
+
     setFileName(file?.name || null);
     if (onFileChange) {
       onFileChange(file);
@@ -111,7 +130,9 @@ export const UploadButton: React.FC<UploadButtonProps> = ({
         </p>
       </button>
       <div className="min-h-[20px]">
-        {error && <p className="text-red-500 text-xs text-right">{error}</p>}
+        {(localError || error) && (
+          <p className="text-red-500 text-xs text-right">{localError || error}</p>
+        )}
       </div>
     </div>
   );

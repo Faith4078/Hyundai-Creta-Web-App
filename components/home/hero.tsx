@@ -1,6 +1,7 @@
 'use client';
 
 import { countdownTimer } from '@/lib/data';
+import { CHALLENGE_START_DATE } from '@/lib/data';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import { motion, Variants } from 'motion/react';
 import Image from 'next/image';
@@ -40,9 +41,10 @@ export default function Hero() {
   });
 
   React.useEffect(() => {
-    // Set the target date to 10 days from the current assumed start date (Dec 29, 2025).
-    // Target: Jan 8, 2026
-    const countDownDate = new Date('Jan 8, 2026 00:00:00').getTime();
+    // End date = start date + 10 days
+    const endDate = new Date(CHALLENGE_START_DATE);
+    endDate.setDate(endDate.getDate() + 10);
+    const countDownDate = endDate.getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -165,7 +167,7 @@ export default function Hero() {
             variants={fadeInUp}
             className="flex gap-[17px] justify-end mt-[58px]"
           >
-            <div className="w-[200px] h-[33px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ml-auto lg:w-[343px] lg:h-[67px]">
+            {/* <div className="w-[200px] h-[33px] bg-gradient-to-r from-[#3B82F6] to-[#00FFFF] rounded-full p-[1.5px] ml-auto lg:w-[343px] lg:h-[67px]">
               <button
                 type="button"
                 className="w-full h-full flex items-center gap-x-4 justify-center rounded-full bg-[#0A0A0A] text-white font-bold font-cairo text-[0.74rem] leading-[2.98rem] lg:text-[1.5rem] lg:leading-24  hover:cursor-pointer hover:scale-105 transition-transform duration-300 active:scale-95"
@@ -186,7 +188,7 @@ export default function Hero() {
                 />
                 التحدي النهائي في انتظارك
               </button>
-            </div>
+            </div> */}
             <Link
               href={'/sign-up'}
               className="w-[99px]  h-[33px] bg-gradient-to-l from-[#3B82F6] to-[#0FF] rounded-[100px] text-[#1E293B] font-cairo  font-bold  flex items-center justify-center text-[0.74rem]  leading-[2.9rem]  lg:text-[1.5rem] lg:leading-[6rem] lg:w-[200px] lg:h-[67px] hover:scale-105 transition-transform duration-300 active:scale-95"

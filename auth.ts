@@ -8,6 +8,7 @@ export const auth = betterAuth({
   trustedOrigins: [
     'http://localhost:3000',
     'https://creta-treasure-hunting.vercel.app',
+    'https://creta-omega.vercel.app',
   ],
   database: drizzleAdapter(db, {
     provider: 'pg',
