@@ -26,6 +26,7 @@ export default function SignInForm() {
     handleSubmit,
     formState: { errors, touchedFields, isSubmitting },
     trigger,
+    setValue,
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
     mode: 'onBlur',
@@ -90,7 +91,9 @@ export default function SignInForm() {
           </CardDescription>
           <CardContent>
             <form
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onSubmit, (errors) => {
+                console.log('SignIn Form Validation Errors:', errors);
+              })}
               className="flex flex-col gap-y-[20px]"
             >
               {/* username */}
@@ -111,6 +114,13 @@ export default function SignInForm() {
                     onBlur={() => trigger('username')}
                   />
                 </motion.div>
+                <div className="min-h-[20px]">
+                  {errors.username && (
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.username.message}
+                    </p>
+                  )}
+                </div>
               </Field>
               {/* password */}
               <Field className="flex flex-col items-end w-full" dir="rtl">
@@ -131,9 +141,17 @@ export default function SignInForm() {
                     onBlur={() => trigger('password')}
                   />
                 </motion.div>
+                <div className="min-h-[20px]">
+                  {errors.password && (
+                    <p className="text-red-500 text-xs mt-1 text-right">
+                      {errors.password.message}
+                    </p>
+                  )}
+                </div>
               </Field>
               <PasswordRememberMeConfirmation
-                register={register}
+                setValue={setValue}
+                trigger={trigger}
                 error={errors.rememberMe?.message}
                 disabled={isSubmitting}
               />

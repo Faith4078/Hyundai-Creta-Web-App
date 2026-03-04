@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { ChevronLeft, Lightbulb, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -98,7 +98,7 @@ const CHALLENGES: Challenge[] = [
     }
 ];
 
-export default function FinalPage() {
+function FinalPageInner() {
     const router = useRouter();
     const [challenge, setChallenge] = useState<Challenge | null>(null);
     const [options, setOptions] = useState<number[]>([]);
@@ -106,9 +106,9 @@ export default function FinalPage() {
     const [isError, setIsError] = useState(false);
     const { data: session } = authClient.useSession()
     const searchParams = useSearchParams();
-  const dayNumber = searchParams.get("day");
+    const dayNumber = searchParams.get("day");
 
-  console.log("finalyNumber2", dayNumber);
+    console.log("finalyNumber2", dayNumber);
 
     useEffect(() => {
         // Select a random challenge and generate options on mount
@@ -147,31 +147,31 @@ export default function FinalPage() {
 
     const handleFinalSubmit = async () => {
         if (!challenge || selectedOption === null) return;
-      
+
         if (selectedOption === challenge.correctAnswer) {
-          try {
-            const userId = session?.user?.id;
-            if (!userId) {
-              console.error('User ID is not available');
-              return;
-            }
-      
+            try {
+                const userId = session?.user?.id;
+                if (!userId) {
+                    console.error('User ID is not available');
+                    return;
+                }
+
                 // Update user days
                 await updateUserDays(userId, Number(dayNumber));
-      
-            // Redirect to winner page
-            router.push('/dashboard/winner-page');
-          } catch (err) {
-            console.error('Failed to update user days:', err);
-            // Optional: show error to user
-          }
+
+                // Redirect to winner page
+                router.push('/dashboard/winner-page');
+            } catch (err) {
+                console.error('Failed to update user days:', err);
+                // Optional: show error to user
+            }
         } else {
-          setIsError(true);
-          // Reset error after animation
-          setTimeout(() => setIsError(false), 2000);
+            setIsError(true);
+            // Reset error after animation
+            setTimeout(() => setIsError(false), 2000);
         }
-      };
-      
+    };
+
 
     if (!challenge) {
         return <div className="min-h-screen bg-[#070b13] flex items-center justify-center text-white">جاري التحميل...</div>;
@@ -327,5 +327,13 @@ export default function FinalPage() {
                 }
             `}</style>
         </main>
+    );
+}
+
+export default function FinalPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-[#070b13] flex items-center justify-center text-white">جاري التحميل...</div>}>
+            <FinalPageInner />
+        </Suspense>
     );
 }

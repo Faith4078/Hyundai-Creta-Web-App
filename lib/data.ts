@@ -1,3 +1,9 @@
+// ─── Single source of truth for the challenge schedule ───────────────────────
+// Change this date to move both countdown timers. The end date is always
+// START_DATE + 10 days.
+export const CHALLENGE_START_DATE = new Date('Mar 04, 2026 00:00:00');
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const dataForHowItWorksSection = [
   {
     icon: '/assets/car-icon.svg',
