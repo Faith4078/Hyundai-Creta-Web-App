@@ -84,8 +84,8 @@ Key optimisations:
 **Prerequisites:** Node.js 18+, Supabase project, Redis instance, Better Auth config
 
 ```bash
-git clone https://github.com/faith4078/hyundai-bahrain
-cd hyundai-bahrain
+git clone https://github.com/Faith4078/Hyundai-Creta-Web-App.git
+cd Hyundai-Creta-Web-App
 pnpm install
 cp .env.example .env.local
 pnpm dev
