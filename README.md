@@ -2,7 +2,7 @@
 
 > Fullstack gamified web app powering Hyundai Bahrain's national treasure hunt campaign for the Creta car launch. Built for 50,000+ users at launch.
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://typescriptlang.org)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat-square&logo=supabase)](https://supabase.com)
 [![Redis](https://img.shields.io/badge/Redis-Sorted%20Sets-DC382D?style=flat-square&logo=redis)](https://redis.io)
