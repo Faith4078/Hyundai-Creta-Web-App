@@ -1,4 +1,4 @@
-****# Hyundai Bahrain — Creta Launch Campaign
+# Hyundai Bahrain — Creta Launch Campaign
 
 > Fullstack gamified web app powering Hyundai Bahrain's national treasure hunt campaign for the Creta car launch. Built for 50,000+ users at launch.
 
@@ -99,8 +99,7 @@ REDIS_URL=
 BETTER_AUTH_SECRET=
 BETTER_AUTH_URL=
 NEXT_PUBLIC_URL=
-CRM_WEBHOOK_URL=
-CRM_WEBHOOK_SECRET=
+
 ```
 
 ---
