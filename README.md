@@ -21,13 +21,13 @@ The platform handled a high-concurrency launch event, serving **50,000+ users** 
 
 ### 1. Real-Time Leaderboard at Scale
 
-A naive database-query leaderboard collapses under concurrent writes at launch traffic. The leaderboard was rebuilt on **Redis sorted sets** — `ZADD` for score writes, `ZREVRANK` for O(log N) rank reads — decoupling rank computation entirely from PostgreSQL.
+A naive database-query leaderboard collapses under concurrent writes at launch traffic. The leaderboard was rebuilt on **Redis sorted sets** ,`ZADD` for score writes, `ZREVRANK` for O(log N) rank reads, decoupling rank computation entirely from PostgreSQL.
 
 Position updates are streamed to the client with **CSS transitions** on rank changes, keeping movement readable rather than jarring during rapid rank shuffles.
 
 ### 2. CRM Integration Without a Dedicated Backend
 
-Lead submissions needed to sync back to Hyundai's internal tracking system in real time. Handled via **Next.js API routes as webhook ingestion points** — entries hit the route, are validated, written to Supabase, and forwarded to the CRM. No separate service, no ops overhead.
+Lead submissions needed to sync back to Hyundai's internal tracking system in real time. Handled via **Next.js API routes as webhook ingestion points** entries hit the route, are validated, written to Supabase, and forwarded to the CRM. No separate service, no ops overhead.
 
 ## Features
 
@@ -48,7 +48,6 @@ Lead submissions needed to sync back to Hyundai's internal tracking system in re
 | Auth | Better Auth |
 | Database | Supabase (PostgreSQL) |
 | Leaderboard | Redis Sorted Sets (`ZADD`, `ZREVRANK`, `ZREVRANGE`) |
-| Media | Cloudinary |
 | API Integration | Next.js API Routes (webhook ingestion, CRM sync) |
 | Deployment | Vercel |
 
@@ -64,9 +63,9 @@ Read path:   ZREVRANK leaderboard:campaign <userId>      → user rank (O log N)
              ZREVRANGE leaderboard:campaign 0 99          → top 100 (O log N + 100)
 ```
 
-Redis sorted sets give guaranteed O(log N) rank reads regardless of leaderboard size — no full-table scans, no rank recomputation on every page load. PostgreSQL handles durable storage; Redis handles the competitive ranking layer.
+Redis sorted sets give guaranteed O(log N) rank reads regardless of leaderboard size  no full-table scans, no rank recomputation on every page load. PostgreSQL handles durable storage; Redis handles the competitive ranking layer.
 
-Frontend rank transitions use CSS `transition` on position values — smooth enough to be readable, fast enough not to feel laggy during burst updates.
+Frontend rank transitions use CSS `transition` on position values smooth enough to be readable, fast enough not to feel laggy during burst updates.
 
 ---
 
@@ -111,7 +110,7 @@ NEXT_PUBLIC_URL=
 ## Scale Notes
 
 - Designed and load-tested for **50,000+ concurrent users** at campaign launch
-- Redis leaderboard reads remain fast under write pressure — rank reads do not block on entry writes
+- Redis leaderboard reads remain fast under write pressure rank reads do not block on entry writes
 - Supabase connection pooling via PgBouncer to handle burst DB connections at launch spike
 
 ---
