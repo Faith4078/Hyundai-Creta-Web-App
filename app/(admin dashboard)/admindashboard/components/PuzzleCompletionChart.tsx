@@ -11,15 +11,17 @@ import {
   Cell,
 } from "recharts";
 
-const data = [
-  { name: "اللغز 1", value: 78, color: "#3b82f6" },
-  { name: "اللغز 2", value: 65, color: "#8b5cf6" },
-  { name: "اللغز 3", value: 82, color: "#f59e0b" },
-  { name: "اللغز 4", value: 70, color: "#10b981" },
-  { name: "اللغز 5", value: 88, color: "#ef4444" },
-];
+interface CompletionPoint {
+  name: string;
+  value: number;
+  color: string;
+}
 
-export default function PuzzleCompletionChart() {
+export default function PuzzleCompletionChart({
+  data,
+}: {
+  data: CompletionPoint[];
+}) {
   return (
     <div className="bg-[#1e2235] rounded-4xl p-4 sm:p-6 flex flex-col shadow-xl w-full h-[300px] sm:h-[380px]">
       {/* Header */}
