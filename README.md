@@ -30,7 +30,7 @@ Browser ──▶ Next.js on Vercel (App Router · Better Auth · API routes)
                 └──▶ Hyundai CRM          — lead sync via webhook forwarding
 ```
 
-The campaign format is short-lived (a few weeks), with most traffic arriving in the first hours — so a separate, always-running backend wasn't worth building or operating. All server-side logic lives in Next.js API routes, which Vercel scales automatically through the spike. Each kind of data lives in the service best suited to it: PostgreSQL keeps the permanent records, Redis handles leaderboard ranking, and Hyundai's CRM owns the sales leads.
+The campaign format is short-lived (a few weeks), with most traffic arriving in the first hours,  so a separate, always-running backend wasn't worth building or operating. All server-side logic lives in Next.js API routes, which Vercel scales automatically through the spike. Each kind of data lives in the service best suited to it: PostgreSQL keeps the permanent records, Redis handles leaderboard ranking, and Hyundai's CRM owns the sales leads.
 
 ---
 
@@ -38,9 +38,9 @@ The campaign format is short-lived (a few weeks), with most traffic arriving in 
 
 ### 1. Real-Time Leaderboard at Scale
 
-A naive database-query leaderboard collapses under concurrent writes at launch traffic. The leaderboard was built on **Redis sorted sets** — `ZINCRBY` for score writes, `ZREVRANK` for O(log N) rank reads — decoupling rank computation entirely from PostgreSQL.
+A naive database-query leaderboard collapses under concurrent writes at launch traffic. The leaderboard was built on **Redis sorted sets** — `ZINCRBY` for score writes, `ZREVRANK` for O(log N) rank reads decoupling rank computation entirely from PostgreSQL.
 
-Clients refresh rankings on a short polling interval — a deliberate fit for serverless, where functions can't hold push connections open — with **animated transitions** on rank changes, keeping movement readable rather than jarring during rapid shuffles.
+Clients refresh rankings on a short polling interval  a deliberate fit for serverless, where functions can't hold push connections open  with **animated transitions** on rank changes, keeping movement readable rather than jarring during rapid shuffles.
 
 ### 2. Lead Sync That Can't Lose Data
 
@@ -90,7 +90,7 @@ Read path:   ZREVRANK leaderboard:campaign <userId>      → user rank, O(log N)
 
 Redis sorted sets give guaranteed O(log N) rank reads regardless of leaderboard size — no full-table scans, no rank recomputation on every page load. PostgreSQL handles durable storage; Redis handles the competitive ranking layer.
 
-Frontend rank changes animate with layout transitions — smooth enough to be readable, fast enough not to feel laggy during burst updates.
+Frontend rank changes animate with layout transitions smooth enough to be readable, fast enough not to feel laggy during burst updates.
 
 ---
 
@@ -155,7 +155,7 @@ pnpm dev
 
 ## Scale Notes
 
-Designed for a **50,000+ user** launch spike. Campaign traffic arrives as a wall, not a ramp — everyone shows up the moment the hunt goes live — and two failure modes dominate that profile:
+Designed for a **50,000+ user** launch spike. Campaign traffic arrives as a wall, not a ramp — everyone shows up the moment the hunt goes live  and two failure modes dominate that profile:
 
 - **Database connection exhaustion** — serverless functions multiply Postgres connections under burst traffic; Supabase connection pooling via PgBouncer keeps the connection count bounded through the spike
 - **Leaderboard contention** — rank reads never block on entry writes, so the leaderboard stays responsive while scores stream in
