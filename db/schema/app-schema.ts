@@ -1,5 +1,12 @@
 import { relations } from 'drizzle-orm';
-import { pgTable, text, timestamp, boolean, index } from 'drizzle-orm/pg-core';
+import {
+  pgTable,
+  text,
+  timestamp,
+  boolean,
+  index,
+  integer,
+} from 'drizzle-orm/pg-core';
 
 export const users = pgTable('users', {
   id: text('id').primaryKey(),
@@ -26,6 +33,8 @@ export const users = pgTable('users', {
     .notNull()
     .unique(),
   agreed_to_terms: boolean('agreed_to_terms').default(false).notNull(),
+  // Challenge progress (0-10), maintained by the hunt flow via Supabase.
+  days: integer('days'),
 });
 
 export const user_sessions = pgTable(
@@ -88,6 +97,26 @@ export const verifications = pgTable(
   (table) => [
     index('verifications_email_identifier_idx').on(table.email_identifier),
   ]
+);
+
+export const leads = pgTable(
+  'leads',
+  {
+    id: text('id')
+      .primaryKey()
+      .$defaultFn(() => crypto.randomUUID()),
+    full_name: text('full_name').notNull(),
+    email_address: text('email_address').notNull(),
+    phone_number: text('phone_number').notNull(),
+    // CRM sync state: 'pending' | 'synced' | 'failed'
+    sync_status: text('sync_status').default('pending').notNull(),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at')
+      .defaultNow()
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .notNull(),
+  },
+  (table) => [index('leads_sync_status_idx').on(table.sync_status)]
 );
 
 export const usersRelations = relations(users, ({ many }) => ({

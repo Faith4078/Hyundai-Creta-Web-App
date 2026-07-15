@@ -1,47 +1,67 @@
-"use client";
-
+import { auth } from "@/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { getAdminDashboardData } from "@/lib/admin-stats";
 import StatCard from "./components/StatCard";
 import QuickActions from "./components/QuickActions";
 import RecentUsers from "./components/RecentUsers";
 import GameManagement from "./components/GameManagement";
 import PuzzleCompletionChart from "./components/PuzzleCompletionChart";
 import UserActivityChart from "./components/UserActivityChart";
-import { Clock, CheckCircle, Trophy, Users } from "lucide-react";
+import { CheckCircle, Trophy, UserPlus, Users } from "lucide-react";
 
-export default function DashboardPage() {
+export const dynamic = "force-dynamic";
+
+export default async function DashboardPage() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  if (!session) {
+    redirect("/sign-in");
+  }
+  if (session.user.role !== "admin") {
+    redirect("/dashboard");
+  }
+
+  const { stats, activity, completion, recentUsers } =
+    await getAdminDashboardData();
+
+  const pct = (part: number, whole: number) =>
+    whole > 0 ? `${Math.round((part / whole) * 100)}%` : "0%";
+
   return (
     <div className="max-w-7xl mx-auto w-full">
       {/* Stats Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
         <StatCard
-          title="متوسط الوقت"
-          value="18m"
-          subtitle="Avg. Time"
-          percentage="3%"
+          title="العملاء المحتملون"
+          value={stats.leadsCaptured.toLocaleString()}
+          subtitle="Leads Captured"
+          percentage={pct(stats.leadsSynced, stats.leadsCaptured)}
           gradient="from-orange-500 to-orange-600"
-          icon={Clock}
+          icon={UserPlus}
         />
         <StatCard
           title="ألعاب مكتملة"
-          value="456"
+          value={stats.gamesCompleted.toLocaleString()}
           subtitle="Games Completed"
-          percentage="15%"
+          percentage={pct(stats.gamesCompleted, stats.totalUsers)}
           gradient="from-purple-500 to-purple-600"
           icon={Trophy}
         />
         <StatCard
           title="ألغاز محلولة"
-          value="1,523"
+          value={stats.cluesSolved.toLocaleString()}
           subtitle="Clues Solved"
-          percentage="8%"
+          percentage={pct(stats.cluesSolved, stats.totalUsers * 10)}
           gradient="from-green-500 to-green-600"
           icon={CheckCircle}
         />
         <StatCard
           title="إجمالي المستخدمين"
-          value="2,847"
+          value={stats.totalUsers.toLocaleString()}
           subtitle="Total Users"
-          percentage="12%"
+          percentage={pct(stats.newThisWeek, stats.totalUsers)}
           gradient="from-blue-500 to-blue-600"
           icon={Users}
         />
@@ -50,10 +70,10 @@ export default function DashboardPage() {
       {/* Charts Section */}
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-8 px-4 sm:px-6 lg:px-8">
         <div className="w-full overflow-x-auto">
-          <PuzzleCompletionChart />
+          <PuzzleCompletionChart data={completion} />
         </div>
         <div className="w-full overflow-x-auto">
-          <UserActivityChart />
+          <UserActivityChart data={activity} />
         </div>
       </div>
 
@@ -66,7 +86,7 @@ export default function DashboardPage() {
 
         {/* RecentUsers */}
         <div className="xl:col-span-2 w-full">
-          <RecentUsers />
+          <RecentUsers users={recentUsers} />
         </div>
       </div>
 
