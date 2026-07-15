@@ -160,4 +160,4 @@ Designed for a **50,000+ user** launch spike. Campaign traffic arrives as a wall
 - **Database connection exhaustion** — serverless functions multiply Postgres connections under burst traffic; Supabase connection pooling via PgBouncer keeps the connection count bounded through the spike
 - **Leaderboard contention** — rank reads never block on entry writes, so the leaderboard stays responsive while scores stream in
 
-The launch-spike profile is scripted with [k6](https://k6.io) in [`load/launch-spike.js`](load/launch-spike.js) — a ramp to 50,000 virtual users with realistic think-time, hitting the landing page and leaderboard route with p95 and error-rate thresholds. The full profile needs k6 Cloud or distributed runners; a scaled-down smoke run works locally.
+The launch-spike profile is scripted with [k6](https://k6.io) in [`load/launch-spike.js`](load/launch-spike.js)  a ramp to 50,000 virtual users with realistic think-time, hitting the landing page and leaderboard route with p95 and error-rate thresholds. The full profile needs k6 Cloud or distributed runners; a scaled-down smoke run works locally.
