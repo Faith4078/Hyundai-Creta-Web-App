@@ -9,17 +9,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { name: "السبت", users: 320 },
-  { name: "الأحد", users: 450 },
-  { name: "الإثنين", users: 400 },
-  { name: "الثلاثاء", users: 520 },
-  { name: "الأربعاء", users: 480 },
-  { name: "الخميس", users: 620 },
-  { name: "الجمعة", users: 580 },
-];
+interface ActivityPoint {
+  name: string;
+  users: number;
+}
 
-export default function UserActivityChart() {
+export default function UserActivityChart({ data }: { data: ActivityPoint[] }) {
   return (
     <div className="bg-[#1e2235] rounded-4xl p-4 sm:p-6 flex flex-col shadow-xl w-full h-[300px] sm:h-[380px]">
       {/* Header */}
@@ -48,7 +43,7 @@ export default function UserActivityChart() {
             axisLine={false}
             tickLine={false}
             tick={{ fill: "#9ca3af", fontSize: 10 }}
-            domain={[0, 650]}
+            allowDecimals={false}
           />
           <Tooltip />
           <Line
