@@ -607,6 +607,18 @@ export default function SignUpForm() {
         throw new Error(authError.message);
       }
 
+      // Sync the new registrant to Hyundai's CRM as a lead. Fire-and-forget:
+      // a CRM outage must never block a user's registration.
+      fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          phone: data.phoneNumber,
+        }),
+      }).catch((err) => console.error('Lead sync failed:', err));
+
       setTimeout(() => {
         window.location.href = '/dashboard';
       }, 3500);

@@ -159,6 +159,14 @@ function FinalPageInner() {
                 // Update user days
                 await updateUserDays(userId, Number(dayNumber));
 
+                // Award leaderboard points for this day. Fire-and-forget:
+                // a leaderboard hiccup must not block the winner flow.
+                fetch('/api/leaderboard', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ day: Number(dayNumber) }),
+                }).catch((err) => console.error('Failed to award points:', err));
+
                 // Redirect to winner page
                 router.push('/dashboard/winner-page');
             } catch (err) {
