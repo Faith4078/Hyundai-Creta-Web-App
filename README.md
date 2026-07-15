@@ -88,7 +88,7 @@ Read path:   ZREVRANK leaderboard:campaign <userId>      → user rank, O(log N)
              ZREVRANGE leaderboard:campaign 0 99          → top 100, O(log N + 100)
 ```
 
-Redis sorted sets give guaranteed O(log N) rank reads regardless of leaderboard size — no full-table scans, no rank recomputation on every page load. PostgreSQL handles durable storage; Redis handles the competitive ranking layer.
+Redis sorted sets give guaranteed O(log N) rank reads regardless of leaderboard size no full-table scans, no rank recomputation on every page load. PostgreSQL handles durable storage; Redis handles the competitive ranking layer.
 
 Frontend rank changes animate with layout transitions smooth enough to be readable, fast enough not to feel laggy during burst updates.
 
